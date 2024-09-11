@@ -1,5 +1,5 @@
 {
-  description = "Configurations of Aylur";
+  description = "Configurations of LOSEARDES77";
 
   outputs = inputs @ {
     self,
@@ -12,7 +12,7 @@
 
     # nixos config
     nixosConfigurations = {
-      "nixos" = nixpkgs.lib.nixosSystem {
+      "loseardes77-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
@@ -21,21 +21,21 @@
         modules = [
           ./nixos/nixos.nix
           home-manager.nixosModules.home-manager
-          {networking.hostName = "nixos";}
+          {networking.hostName = "loseardes77-laptop";}
         ];
       };
     };
 
     # macos hm config
     homeConfigurations = {
-      "demeter" = home-manager.lib.homeManagerConfiguration {
+      "loseardes77" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         extraSpecialArgs = {inherit inputs;};
         modules = [
           ({pkgs, ...}: {
             nix.package = pkgs.nix;
-            home.username = "demeter";
-            home.homeDirectory = "/Users/demeter";
+            home.username = "loseardes77";
+            home.homeDirectory = "/Users/loseardes77";
             imports = [./macos/home.nix];
           })
         ];
