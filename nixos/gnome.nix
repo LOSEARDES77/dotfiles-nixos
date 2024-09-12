@@ -34,7 +34,7 @@
           yelp # Help view
           gnome-font-viewer
         ])
-        ++ (with pkgs.gnome; [
+        ++ (with pkgs; [
           gnome-music
           gnome-characters
           tali # poker game

@@ -124,7 +124,7 @@ in {
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
           "SUPER, W, exec, firefox"
-          "SUPER, E, exec, wezterm -e lf"
+          "SUPER, E, exec, blackbox -c lf"
           "SUPER SHIFT, E, exec, nautilus"
 
           # youtube

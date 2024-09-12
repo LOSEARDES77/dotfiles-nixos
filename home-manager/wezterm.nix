@@ -80,7 +80,7 @@
     };
   in {
     enable = true;
-    font = "CaskaydiaCove NF";
+    font = "CaskaydiaCove Nerd Font";
 
     themes = {
       Dark = "Charmful Dark";

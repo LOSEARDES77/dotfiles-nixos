@@ -7,7 +7,6 @@
 in {
   imports = [
     /etc/nixos/hardware-configuration.nix
-    ./openssh.nix
     ./system.nix
     ./audio.nix
     ./locale.nix
@@ -33,7 +32,7 @@ in {
       "docker"
     ];
   };
-
+  programs.nix-ld.enable = true;
   home-manager = {
     backupFileExtension = "backup";
     useGlobalPkgs = true;
