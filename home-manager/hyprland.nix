@@ -122,7 +122,7 @@ in {
           ",XF86Launch4,   ${e} -r 'recorder.start()'"
           ",Print,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
-          "SUPER, Return, exec, wezterm" # xterm is a symlink, not actually xterm
+          "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
           "SUPER, W, exec, firefox"
           "SUPER, E, exec, wezterm -e lf"
           "SUPER SHIFT, E, exec, nautilus"
