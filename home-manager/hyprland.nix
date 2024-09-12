@@ -134,8 +134,8 @@ in {
           "CTRL ALT, Delete, exit"
           "SUPER, Q, killactive"
           "ALT,   V, togglefloating"
-          "ALT, RETURN, fullscreen"
-          "SUPER, O, fakefullscreen"
+          "Alt+Shift, Return, fullscreen, 0"
+          "Alt, Return, fullscreen, 1"
           "SUPER, P, togglesplit"
 
           (mvfocus "k" "u")
