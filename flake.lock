@@ -57,11 +57,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1726097987,
-        "narHash": "sha256-XVc6h6FIKni+Q+WYLV1OWllsJA/zG1lwo0A4nsElw/U=",
+        "lastModified": 1726141850,
+        "narHash": "sha256-fvt6CxkK2EmOxTt3TZVSo73O2j8P1B51txr05nSMTTg=",
         "owner": "Aylur",
         "repo": "astal",
-        "rev": "e04c00ac5c7cd964879380d9e9f9f6bf8e2dfa8e",
+        "rev": "3a057f53a265b2a5530ae4888fb7992cd0180c89",
         "type": "github"
       },
       "original": {
