@@ -55,6 +55,7 @@
         to = 1764;
       }
     ];
+    allowedTCPPorts = [22];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
 
