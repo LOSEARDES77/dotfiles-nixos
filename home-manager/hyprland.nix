@@ -41,13 +41,11 @@ in {
       exec-once = [
         "ags -b hypr"
         "hyprctl setcursor Qogir 24"
-        "fragments"
+        
       ];
 
       monitor = [
-        # "eDP-1, 1920x1080, 0x0, 1"
-        # "HDMI-A-1, 2560x1440, 1920x0, 1"
-        ",preferred,auto,1"
+        "eDP-1, 1920x1080, 0x0, 1"
       ];
 
       general = {
@@ -56,13 +54,14 @@ in {
       };
 
       misc = {
-        disable_splash_rendering = true;
+        disable_splash_rendering = false;
         force_default_wallpaper = 1;
       };
 
       input = {
-        kb_layout = "hu,us";
+        kb_layout = "es";
         follow_mouse = 1;
+        mouse_refocus = false;
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
@@ -117,24 +116,25 @@ in {
       in
         [
           "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
-          "SUPER, R,       ${e} -t launcher"
+          "ALT, SPACE,     ${e} -t launcher"
           "SUPER, Tab,     ${e} -t overview"
           ",XF86PowerOff,  ${e} -r 'powermenu.shutdown()'"
           ",XF86Launch4,   ${e} -r 'recorder.start()'"
           ",Print,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
-          "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
+          "SUPER, Return, exec, wezterm" # xterm is a symlink, not actually xterm
           "SUPER, W, exec, firefox"
           "SUPER, E, exec, wezterm -e lf"
+          "SUPER SHIFT, E, exec, nautilus"
 
           # youtube
           ", XF86Launch1,  exec, ${yt}"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
-          "ALT, Q, killactive"
-          "SUPER, F, togglefloating"
-          "SUPER, G, fullscreen"
+          "SUPER, Q, killactive"
+          "ALT,   V, togglefloating"
+          "ALT, RETURN, fullscreen"
           "SUPER, O, fakefullscreen"
           "SUPER, P, togglesplit"
 

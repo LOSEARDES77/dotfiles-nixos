@@ -117,7 +117,7 @@
 
       audible_bell = "Disabled";
 
-      default_prog = ["${pkgs.tmux}/bin/tmux"];
+      default_prog = ["${pkgs.nushell}/bin/nu"];
     };
 
     extraLua = ''
