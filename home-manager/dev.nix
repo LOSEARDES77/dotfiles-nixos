@@ -1,7 +1,6 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    jetbrains.idea-ultimate-bin
+    jetbrains.idea-ultimate
     cmake
     libtool
     gnumake
@@ -26,3 +25,4 @@
     php
   ];
 }
+
