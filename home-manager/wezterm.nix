@@ -88,7 +88,7 @@
     };
 
     settings = {
-      enable_wayland = true;
+      enable_wayland = false;
       color_schemes = {
         "Gnome Light" = gnome-light;
         "Charmful Dark" = charmful-dark;

@@ -57,6 +57,7 @@
     ];
     allowedTCPPorts = [22];
     allowedUDPPortRanges = allowedTCPPortRanges;
+    enable = false;
   };
 
   # network
