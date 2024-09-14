@@ -1,11 +1,10 @@
-{inputs, pkgs, ...}: {
+{inputs, ...}: {
   home = {
     sessionVariables.BROWSER = "firefox";
   };
 
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts.packages = [ pkgs.plasma5Packages.plasma-browser-integration ];
 
     policies = {
         DisableTelemetry = true;
@@ -60,14 +59,14 @@
 
         Preferences = { 
           "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckdukgo";
-          "extensions.pocket.enabled" = lock-false;
-          "browser.topsites.contile.enabled" = lock-false;
-          "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
-          "browser.newtabpage.activity-stream.feeds.snippets" = lock-false;
-          "browser.newtabpage.activity-stream.section.highlights.includePocket" = lock-false;
-          "browser.newtabpage.activity-stream.showSponsored" = lock-false;
-          "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
-          "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+          "extensions.pocket.enabled" = false;
+          "browser.topsites.contile.enabled" = false;
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+          "browser.newtabpage.activity-stream.feeds.snippets" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.system.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         };
       };
   };
