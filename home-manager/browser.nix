@@ -1,10 +1,33 @@
-{inputs, ...}: {
+{inputs, ...}: let
+    lock-false = {
+      Value = false;
+      Status = "locked";
+    };
+    lock-true = {
+      Value = true;
+      Status = "locked";
+    };
+  in {
   home = {
     sessionVariables.BROWSER = "firefox";
   };
 
   programs.firefox = {
     enable = true;
+
+    profiles.default = {
+      name = "Default";
+      settings = {
+        "browser.tabs.loadInBackground" = true;
+        "widget.gtk.rounded-bottom-corners.enabled" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "svg.context-properties.content.enabled" = true;
+        "gnomeTheme.hideSingleTab" = true;
+        "gnomeTheme.bookmarksToolbarUnderTabs" = true;
+        "gnomeTheme.normalWidthTabs" = false;
+        "gnomeTheme.tabsAsHeaderbar" = false;
+      };
+    };
 
     policies = {
         DisableTelemetry = true;
@@ -16,7 +39,6 @@
           Fingerprinting = true;
         };
         DisablePocket = true;
-        DisableAccounts = true;
         DisableFirefoxScreenshots = true;
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";
@@ -40,11 +62,6 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
-          # Privacy Badger:
-          "jid1-MnnxcxisBPnSXQ@jetpack" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
-            installation_mode = "force_installed";
-          };
           # 1Password:
           "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
@@ -59,14 +76,14 @@
 
         Preferences = { 
           "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckdukgo";
-          "extensions.pocket.enabled" = false;
-          "browser.topsites.contile.enabled" = false;
-          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-          "browser.newtabpage.activity-stream.feeds.snippets" = false;
-          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-          "browser.newtabpage.activity-stream.showSponsored" = false;
-          "browser.newtabpage.activity-stream.system.showSponsored" = false;
-          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "extensions.pocket.enabled" = locked-false;
+          "browser.topsites.contile.enabled" = locked-false;
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = locked-false;
+          "browser.newtabpage.activity-stream.feeds.snippets" = locked-false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = locked-false;
+          "browser.newtabpage.activity-stream.showSponsored" = locked-false;
+          "browser.newtabpage.activity-stream.system.showSponsored" = locked-false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = locked-false;
         };
       };
   };

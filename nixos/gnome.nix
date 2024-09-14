@@ -35,6 +35,7 @@
           gnome-font-viewer
         ])
         ++ (with pkgs; [
+          gnome-keyring
           gnome-music
           gnome-characters
           tali # poker game
@@ -47,6 +48,10 @@
           gnome-maps
         ]);
     };
+
+    services.gnome.gnome-keyring.enable = true;
+
+    security.pam.services.hyprland.enableGnomeKeyring = true;
 
     services.xserver = {
       displayManager.gdm.enable = true;

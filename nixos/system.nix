@@ -27,6 +27,7 @@
     git
     wget
     gh
+    kdePackages.plasma-browser-integration
   ];
 
   # services
