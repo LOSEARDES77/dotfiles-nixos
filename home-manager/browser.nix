@@ -76,14 +76,14 @@
 
         Preferences = { 
           "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckdukgo";
-          "extensions.pocket.enabled" = locked-false;
-          "browser.topsites.contile.enabled" = locked-false;
-          "browser.newtabpage.activity-stream.feeds.section.topstories" = locked-false;
-          "browser.newtabpage.activity-stream.feeds.snippets" = locked-false;
-          "browser.newtabpage.activity-stream.section.highlights.includePocket" = locked-false;
-          "browser.newtabpage.activity-stream.showSponsored" = locked-false;
-          "browser.newtabpage.activity-stream.system.showSponsored" = locked-false;
-          "browser.newtabpage.activity-stream.showSponsoredTopSites" = locked-false;
+          "extensions.pocket.enabled" = lock-false;
+          "browser.topsites.contile.enabled" = lock-false;
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
+          "browser.newtabpage.activity-stream.feeds.snippets" = lock-false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = lock-false;
+          "browser.newtabpage.activity-stream.showSponsored" = lock-false;
+          "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
         };
       };
   };
