@@ -7,8 +7,7 @@
     auto-optimise-store = true;
   };
 
-  # camera
-  programs.droidcam.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # virtualisation
   programs.virt-manager.enable = true;
@@ -28,7 +27,6 @@
     git
     wget
     gh
-    vscode
   ];
 
   # services
