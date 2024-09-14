@@ -17,7 +17,7 @@
       # yabridgectl
       # wine-staging
       nodejs
-      1password
+      _1password-gui
     ];
     cli = [
       bat
