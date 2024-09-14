@@ -26,8 +26,8 @@
         DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
 
         SearchEngines = {
-          Default = "duckdukgo"
-          PreventInstalls = true
+          Default = "duckdukgo";
+          PreventInstalls = true;
         };
 
         /* ---- EXTENSIONS ---- */
@@ -54,7 +54,7 @@
         };
 
         Preferences = { 
-          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckdukgo"
+          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "duckdukgo";
           "extensions.pocket.enabled" = lock-false;
           "browser.topsites.contile.enabled" = lock-false;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
