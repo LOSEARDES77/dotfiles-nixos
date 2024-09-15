@@ -7,8 +7,7 @@
     auto-optimise-store = true;
   };
 
-  # camera
-  programs.droidcam.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # virtualisation
   programs.virt-manager.enable = true;
@@ -27,6 +26,8 @@
     neovim
     git
     wget
+    gh
+    kdePackages.plasma-browser-integration
   ];
 
   # services
@@ -37,7 +38,17 @@
     };
     printing.enable = true;
     flatpak.enable = true;
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      ports = [22];
+      settings = {
+        PasswordAuthentication = true;
+        AllowUsers = ["loseardes77"];
+        UseDns = true;
+        X11Forwarding = false;
+        PermitRootLogin = "prohibit-password";
+      };
+    };
   };
 
   # logind
@@ -55,7 +66,9 @@
         to = 1764;
       }
     ];
+    allowedTCPPorts = [22];
     allowedUDPPortRanges = allowedTCPPortRanges;
+    enable = false;
   };
 
   # network

@@ -80,7 +80,7 @@
     };
   in {
     enable = true;
-    font = "CaskaydiaCove NF";
+    font = "CaskaydiaCove Nerd Font";
 
     themes = {
       Dark = "Charmful Dark";
@@ -88,7 +88,7 @@
     };
 
     settings = {
-      enable_wayland = true;
+      enable_wayland = false;
       color_schemes = {
         "Gnome Light" = gnome-light;
         "Charmful Dark" = charmful-dark;
