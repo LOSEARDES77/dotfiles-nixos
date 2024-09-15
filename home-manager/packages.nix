@@ -20,12 +20,13 @@
     ];
     cli = [
       bat
-      eza
+      lsd
       fd
       ripgrep
       fzf
       lazydocker
       lazygit
+      zoxide
     ];
   };
 }
