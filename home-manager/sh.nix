@@ -32,14 +32,14 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history = {
-        apennd = true;
+        append = true;
         ignoreAllDups = true;
         ignoreSpace = true;
         save = 5000;
         share = true;
       };
       initExtra = ''
-        SHELL=${pkgs.zsh}/bin/zsh
+        SHELL=\${pkgs.zsh}/bin/zsh
         zstyle ':completion:*' menu select
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
@@ -48,12 +48,12 @@ in {
         # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
         # Initialization code that may require console input (password prompts, [y/n]
         # confirmations, etc.) must go above this block; everything else may go below.
-        if [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-          source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+        if [[ -r "$HOME/.cache/p10k-instant-prompt-$USER.zsh" ]]; then
+          source "$HOME/.cache/p10k-instant-prompt-$USER.zsh"
         fi
 
         # Set the directory we want to store zinit and plugins
-        ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+        ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
         PATH=$PATH:/home/loseardes77/.cargo/bin:/home/loseardes77/.fzf/bin
 
         # Download Zinit, if it's not there yet
@@ -63,7 +63,7 @@ in {
         fi
 
         # Source/Load zinit
-        source "${ZINIT_HOME}/zinit.zsh"
+        source "$ZINIT_HOME/zinit.zsh"
 
         # Add in Powerlevel10k
         zinit ice depth=1; zinit light romkatv/powerlevel10k
@@ -103,7 +103,6 @@ in {
 
         # Completion styling
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
         zstyle ':completion:*' menu no
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
         zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
