@@ -6,7 +6,14 @@
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
-
+  environment.etc = {
+        "1password/custom_allowed_browsers" = {
+          text = ''
+            firefox
+          '';
+          mode = "0755";
+        };
+      };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # virtualisation
