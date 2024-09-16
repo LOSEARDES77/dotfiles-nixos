@@ -14,6 +14,7 @@
     marksman
     texlive.combined.scheme-full
     # python311Packages.pygments
+    discord
     vscode
     jdk
     synology-drive-client
