@@ -13,7 +13,7 @@
 
     settings = {
       command-as-login-shell = true;
-      custom-shell-command = "${pkgs.nushell}/bin/nu";
+      custom-shell-command = "${pkgs.zsh}/bin/nu";
       use-custom-command = true;
       font = "CaskaydiaCove Nerd Font 12";
       fill-tabs = true;
