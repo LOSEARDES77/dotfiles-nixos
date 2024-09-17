@@ -18,6 +18,7 @@
     zip
     unzip
     gnutar
+    ctpv
   ];
 
   programs.lf = {
@@ -112,9 +113,9 @@
       source = "${pkgs.ctpv}/bin/ctpv";
     };
     extraConfig = ''
-      &$HOME/.local/bin/ctpv -s $id
-      cmd on-quit %$HOME/.local/bin/ctpv -e $id
-      set cleaner $HOME/.local/bin/ctpvclear
+      &${pkgs.ctpv}/bin/ctpv -s $id
+      cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
+      set cleaner ${pkgs.ctpv}/bin/ctpvclear
     '';
 
     settings = {
