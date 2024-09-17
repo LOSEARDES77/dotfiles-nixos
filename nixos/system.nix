@@ -65,6 +65,12 @@
     HandleLidSwitchExternalPower=ignore
   '';
 
+  # Httpd
+  services.httpd = {
+    enable = true;
+    virtualHosts."localhost".documentRoot = "/var/www/html";
+  };
+  
   # kde connect
   networking.firewall = rec {
     allowedTCPPortRanges = [
