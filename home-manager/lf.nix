@@ -107,6 +107,16 @@
       f = "fzf";
     };
 
+    previewer = {
+      keybinding = "i";
+      source = "${pkgs.ctpv}/bin/ctpv";
+    };
+    extraConfig = ''
+      &$HOME/.local/bin/ctpv -s $id
+      cmd on-quit %$HOME/.local/bin/ctpv -e $id
+      set cleaner $HOME/.local/bin/ctpvclear
+    '';
+
     settings = {
       scrolloff = 4;
       preview = true;
