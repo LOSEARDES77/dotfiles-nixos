@@ -13,6 +13,7 @@
       # gnome-secrets
       fragments
       figma-linux
+      steam
       # yabridge
       # yabridgectl
       # wine-staging
