@@ -30,6 +30,7 @@ in {
       "video"
       "libvirtd"
       "docker"
+      "vboxusers"
     ];
   };
   programs.nix-ld.enable = true;
