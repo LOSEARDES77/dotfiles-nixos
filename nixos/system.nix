@@ -36,6 +36,7 @@
     gh
     kdePackages.plasma-browser-integration
     nixos-bgrt-plymouth
+    virtualbox
   ];
 
   # services
@@ -111,6 +112,10 @@
       efi.canTouchEfiVariables = true;
     };
   };
+
+  # Virtualization
+  virtualisation.virtualbox.host.enable = true;
+
 
   system.stateVersion = "23.05";
 }
