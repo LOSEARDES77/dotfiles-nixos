@@ -35,6 +35,7 @@
     wget
     gh
     kdePackages.plasma-browser-integration
+    nixos-bgrt-plymouth
   ];
 
   # services
@@ -110,7 +111,6 @@
       efi.canTouchEfiVariables = true;
     };
   };
-  environment.systemPackages = with pkgs; [ nixos-bgrt-plymouth ];
 
   system.stateVersion = "23.05";
 }
