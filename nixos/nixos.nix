@@ -11,13 +11,12 @@ in {
     ./audio.nix
     ./locale.nix
     ./nautilus.nix
-    ./laptop.nix
+#    ./laptop.nix
     ./hyprland.nix
     ./gnome.nix
   ];
 
   hyprland.enable = true;
-  asusLaptop.enable = false;
 
   users.users.${username} = {
     isNormalUser = true;
