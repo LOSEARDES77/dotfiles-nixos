@@ -10,12 +10,21 @@ in {
       github.user = name;
       push.autoSetupRemote = true;
     };
-    userEmail = "84414230+LOSEARDES77@users.noreply.github.com";
+    userEmail = "loseardes77@gmail.com";
     userName = name;
   };
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
+    extraConfig = "
+Host losecloud
+  HostName 143.47.56.219
+  User ubuntu
+  IdentityFile ~/.ssh/losecloud.key
+  Port 22
+";
   };
+
+
   services.ssh-agent.enable = true;
 }
