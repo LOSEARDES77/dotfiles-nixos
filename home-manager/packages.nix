@@ -18,6 +18,8 @@
       # wine-staging
       nodejs
       _1password-gui
+      fuse
+      warp-terminal
     ];
     cli = [
       bat
@@ -28,6 +30,7 @@
       lazydocker
       lazygit
       zoxide
+      btop
     ];
   };
 }
