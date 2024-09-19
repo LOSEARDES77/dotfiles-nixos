@@ -17,6 +17,7 @@
     "cat" = "bat";
     "vim" = "nvim";
     "c" = "clear";
+    "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure"
   };
 in {
   options.shellAliases = with lib; mkOption {
