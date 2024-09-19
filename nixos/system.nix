@@ -36,7 +36,7 @@
     gh
     kdePackages.plasma-browser-integration
     nixos-bgrt-plymouth
-    virtualbox
+    mission-center
   ];
 
   # services
@@ -116,8 +116,6 @@
   # Virtualization
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.host.enableKvm = true;
-
 
   system.stateVersion = "23.05";
 }
