@@ -40,6 +40,9 @@
     kdePackages.plasma-browser-integration
     nixos-bgrt-plymouth
     mission-center
+    lightly-qt
+    kdePackages.qt6ct
+    egl-wayland
   ];
 
   # services
