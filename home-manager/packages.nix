@@ -19,6 +19,7 @@
       nodejs
       _1password-gui
       fuse
+      fuzzel
       warp-terminal
       localsend
     ];
