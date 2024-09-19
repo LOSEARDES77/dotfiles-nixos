@@ -16,9 +16,14 @@
       };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  
+
   # virtualisation
   programs.virt-manager.enable = true;
   virtualisation = {
+    virtualbox.host.enable = true;
+    virtualbox.host.enableKvm = true;
+    virtualbox.host.addNetworkInterface = false;
     podman.enable = true;
     docker.enable = true;
     libvirtd.enable = true;
@@ -112,10 +117,6 @@
       efi.canTouchEfiVariables = true;
     };
   };
-
-  # Virtualization
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableKvm = true;
 
   system.stateVersion = "23.05";
 }
