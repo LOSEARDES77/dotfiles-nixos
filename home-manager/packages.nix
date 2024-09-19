@@ -20,6 +20,7 @@
       _1password-gui
       fuse
       warp-terminal
+      localsend
     ];
     cli = [
       bat

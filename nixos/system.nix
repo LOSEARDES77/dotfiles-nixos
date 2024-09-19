@@ -22,8 +22,6 @@
   programs.virt-manager.enable = true;
   virtualisation = {
     virtualbox.host.enable = true;
-    virtualbox.host.enableKvm = true;
-    virtualbox.host.addNetworkInterface = false;
     podman.enable = true;
     docker.enable = true;
     libvirtd.enable = true;

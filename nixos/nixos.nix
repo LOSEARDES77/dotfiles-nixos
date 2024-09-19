@@ -31,6 +31,7 @@ in {
       "libvirtd"
       "docker"
       "vboxusers"
+      "user-with-access-to-virtualbox"
     ];
   };
   programs.nix-ld.enable = true;
