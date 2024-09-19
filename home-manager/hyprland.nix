@@ -138,6 +138,7 @@ in {
           "Alt+Shift, Return, fullscreen, 0"
           "Alt, Return, fullscreen, 1"
           "SUPER, P, togglesplit"
+          "Super, V, exec, pkill fuzzel || cliphist list | fuzzel --no-icons --dmenu | cliphist decode | wl-copy"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
