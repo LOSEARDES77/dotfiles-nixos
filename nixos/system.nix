@@ -66,6 +66,27 @@
     };
   };
 
+  # fonts
+  fonts.packages = with pkgs; [
+    (
+      nerdfonts.override { fonts = [ 
+        "FiraCode" 
+        "DroidSansMono"
+        "JetBrainsMono"
+        "CascadiaCode"
+      ];}
+    )
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+
   # logind
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
@@ -112,6 +133,7 @@
     plymouth.enable = true;
     tmp.cleanOnBoot = true;
     supportedFilesystems = ["ntfs"];
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       timeout = 2;
       systemd-boot.enable = true;

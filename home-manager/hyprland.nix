@@ -42,6 +42,8 @@ in {
         "ags -b hypr"
         "hyprctl setcursor Qogir 24"
         "1password --silent"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
         
       ];
 
@@ -57,6 +59,8 @@ in {
       misc = {
         disable_splash_rendering = false;
         force_default_wallpaper = 1;
+        enable_swallow = true;
+        swallow_regex = "^(blackbox)$";
       };
 
       input = {

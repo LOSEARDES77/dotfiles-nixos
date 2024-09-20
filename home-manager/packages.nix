@@ -20,6 +20,7 @@
       _1password-gui
       fuse
       fuzzel
+      cliphist
       warp-terminal
       localsend
     ];
