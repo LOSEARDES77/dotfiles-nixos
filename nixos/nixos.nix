@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
 }: let
   username = "loseardes77";
@@ -17,10 +18,12 @@ in {
   ];
 
   hyprland.enable = true;
+  programs.zsh.enable = true;
 
   users.users.${username} = {
     isNormalUser = true;
     initialPassword = username;
+    shell = pkgs.zsh;
     extraGroups = [
       "nixosvmtest"
       "networkmanager"
