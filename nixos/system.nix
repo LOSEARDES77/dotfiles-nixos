@@ -16,7 +16,6 @@
       };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  
 
   # virtualisation
   programs.virt-manager.enable = true;
@@ -69,8 +68,8 @@
   # fonts
   fonts.packages = with pkgs; [
     (
-      nerdfonts.override { fonts = [ 
-        "FiraCode" 
+      nerdfonts.override { fonts = [
+        "FiraCode"
         "DroidSansMono"
         "JetBrainsMono"
         "CascadiaCode"
@@ -96,10 +95,10 @@
 
   # Httpd
   services.httpd = {
-    enable = true;
+    enable = false;
     virtualHosts."localhost".documentRoot = "/var/www/html";
   };
-  
+
   # kde connect
   networking.firewall = rec {
     allowedTCPPortRanges = [
