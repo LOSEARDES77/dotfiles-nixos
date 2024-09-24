@@ -17,6 +17,9 @@
     "cat" = "bat";
     "vim" = "nvim";
     "c" = "clear";
+    "gp" = "git push";
+    "ga" = "git add .";
+    "gcm" = "git commit -m";
     "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
   };
 in {
@@ -29,9 +32,6 @@ in {
     zsh = {
       shellAliases = aliases // config.shellAliases;
       enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
       history = {
         append = true;
         ignoreAllDups = true;
@@ -73,10 +73,8 @@ in {
         source "$ZINIT_HOME/zinit.zsh"
 
         # Add in starship
-        zinit ice as"command" from"gh-r" \
-                  atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-                  atpull"%atclone" src"init.zsh"
-        zinit light starship/starship
+        zinit light 'starship/starship'
+        eval "$(starship init zsh)"
 
         # Add in zsh plugins
         zinit light zsh-users/zsh-syntax-highlighting
@@ -116,8 +114,6 @@ in {
         # Shell integrations
         eval "$(fzf --zsh)"
         eval "$(zoxide init --cmd cd zsh)"
-
-        export PATH=$HOME/.local/bin:$PATH
       '';
     };
 
