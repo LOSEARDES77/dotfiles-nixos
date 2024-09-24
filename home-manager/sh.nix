@@ -21,6 +21,7 @@
     "ga" = "git add .";
     "gcm" = "git commit -m";
     "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
+    "flake-update" = "cd $HOME/.config/dotfiles-nixos && git pull && nix flake update && git add flake.lock && git commit -m 'Update flake.lock' && git push && update";
   };
 in {
   options.shellAliases = with lib; mkOption {
@@ -43,6 +44,7 @@ in {
         {
           name = "zsh-nix-shell";
           file = "nix-shell.plugin.zsh";
+
           src = pkgs.fetchFromGitHub {
             owner = "chisui";
             repo = "zsh-nix-shell";
