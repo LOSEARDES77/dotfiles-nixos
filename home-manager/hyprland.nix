@@ -44,7 +44,6 @@ in {
         "1password --silent"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        
       ];
 
       monitor = [
@@ -143,6 +142,7 @@ in {
           "Alt, Return, fullscreen, 1"
           "SUPER, P, togglesplit"
           "Super, V, exec, pkill fuzzel || cliphist list | fuzzel --no-icons --dmenu | cliphist decode | wl-copy"
+          "Super, F, exec, firefox -new-window file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf &> /dev/null & disown && gnome-calculator &> /dev/null &"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
