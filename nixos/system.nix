@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  alejandra =
+    (import (builtins.fetchTarball {
+      url = "https://github.com/kamadorueda/alejandra/tarball/3.0.0";
+      sha256 = "18jm0d5xrxk38hw5sa470zgfz9xzdcyaskjhgjwhnmzd5fgacny4";
+    }) {})
+    .outPath;
+in {
   # nix
   documentation.nixos.enable = false; # .desktop
   nixpkgs.config.allowUnfree = true;
@@ -7,15 +14,14 @@
     auto-optimise-store = true;
   };
   environment.etc = {
-        "1password/custom_allowed_browsers" = {
-          text = ''
-            firefox
-          '';
-          mode = "0755";
-        };
-      };
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        firefox
+      '';
+      mode = "0755";
+    };
+  };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
 
   # virtualisation
   programs.virt-manager.enable = true;
@@ -42,6 +48,7 @@
     lightly-qt
     kdePackages.qt6ct
     egl-wayland
+    alejandra
   ];
 
   # services
@@ -68,12 +75,14 @@
   # fonts
   fonts.packages = with pkgs; [
     (
-      nerdfonts.override { fonts = [
-        "FiraCode"
-        "DroidSansMono"
-        "JetBrainsMono"
-        "CascadiaCode"
-      ];}
+      nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "DroidSansMono"
+          "JetBrainsMono"
+          "CascadiaCode"
+        ];
+      }
     )
     noto-fonts
     noto-fonts-cjk

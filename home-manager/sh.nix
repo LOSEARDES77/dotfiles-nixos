@@ -24,10 +24,11 @@
     "flake-update" = "cd $HOME/.config/dotfiles-nixos && git pull && nix flake update && git add flake.lock && git commit -m 'Update flake.lock' && git push && update";
   };
 in {
-  options.shellAliases = with lib; mkOption {
-    type = types.attrsOf types.str;
-    default = {};
-  };
+  options.shellAliases = with lib;
+    mkOption {
+      type = types.attrsOf types.str;
+      default = {};
+    };
 
   config.programs = {
     zsh = {
@@ -76,7 +77,6 @@ in {
 
         # Add in starship
         zinit light 'starship/starship'
-        eval "$(starship init zsh)"
 
         # Add in zsh plugins
         zinit light zsh-users/zsh-syntax-highlighting
