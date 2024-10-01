@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     jetbrains.idea-ultimate
     jetbrains.phpstorm
+    jetbrains.webstorm
     zed-editor
     cmake
     libtool
@@ -27,5 +28,6 @@
     dotnet-sdk_8
     php
     deno
+    hugo
   ];
 }
