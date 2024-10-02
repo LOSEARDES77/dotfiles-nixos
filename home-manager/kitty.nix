@@ -6,10 +6,12 @@
 }: {
   programs.kitty = lib.mkForce {
     enable = true;
-    font.name = "CaskaydiaCove Nerd Font Mono";
+    font = {
+      name = "CaskaydiaCove Nerd Font";
+      size = 13;
+    }
     shellIntegration.enableZshIntegration = true;
     settings = {
-      font_size = 13;
       confirm_os_window_close = 0;
       dynamic_background_opacity = true;
       enable_audio_bell = false;
@@ -66,7 +68,7 @@
           "U+E5FA-U+E62B"
         ];
       in
-        (builtins.concatStringsSep "," mappings) + " Symbols Nerd Font";
+        (builtins.concatStringsSep "," mappings);
     };
   };
 }
