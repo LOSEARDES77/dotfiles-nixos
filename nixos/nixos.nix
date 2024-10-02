@@ -12,7 +12,7 @@ in {
     ./audio.nix
     ./locale.nix
     ./nautilus.nix
-#    ./laptop.nix
+    #    ./laptop.nix
     ./hyprland.nix
     ./gnome.nix
   ];
@@ -46,6 +46,7 @@ in {
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
+        ../home-manager/kitty.nix
         ../home-manager/nvim.nix
         ../home-manager/ags.nix
         ../home-manager/blackbox.nix
@@ -60,7 +61,7 @@ in {
         ../home-manager/starship.nix
         ../home-manager/theme.nix
         ../home-manager/tmux.nix
-        ../home-manager/wezterm.nix
+        # ../home-manager/wezterm.nix
         ../home-manager/dev.nix
         ./home.nix
       ];
