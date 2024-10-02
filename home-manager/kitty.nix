@@ -7,22 +7,24 @@
   programs.kitty = lib.mkForce {
     enable = true;
     settings = {
-      font_family = "CaskaydiaCove Nerd Font";
+      font_family = "family=\"CaskaydiaCove Nerd Font Mono\"";
       font_size = 13;
-      disable_ligatures = "never";
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
       confirm_os_window_close = 0;
       dynamic_background_opacity = true;
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
-      window_padding_width = 10;
+      window_padding_width = 18;
       background_opacity = "0.5";
       background_blur = 5;
       cursor_shape = "beam";
-      cursor = "#ffffff";
-      cursor_text_color = "#171717";
       shell = "${pkgs.zsh}/bin/zsh";
 
       # Charmful
+      cursor = "#ffffff";
+      cursor_text_color = "#171717";
       background = "#171717";
       foreground = "#b2b5b3";
       selection_foreground = "#ffffff";
