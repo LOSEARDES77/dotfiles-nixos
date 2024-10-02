@@ -6,18 +6,16 @@
 }: {
   programs.kitty = lib.mkForce {
     enable = true;
+    font.name = "CaskaydiaCove Nerd Font Mono";
+    shellIntegration.enableZshIntegration = true;
     settings = {
-      font_family = "family=\"CaskaydiaCove Nerd Font Mono\"";
       font_size = 13;
-      bold_font = "auto";
-      italic_font = "auto";
-      bold_italic_font = "auto";
       confirm_os_window_close = 0;
       dynamic_background_opacity = true;
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       window_padding_width = 18;
-      background_opacity = "0.5";
+      background_opacity = "1";
       background_blur = 5;
       cursor_shape = "beam";
       shell = "${pkgs.zsh}/bin/zsh";
