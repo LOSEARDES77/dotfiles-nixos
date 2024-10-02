@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       font_family = "CaskaydiaCove Nerd Font";
-      font_size = 15;
+      font_size = 13;
       disable_ligatures = "never";
       confirm_os_window_close = 0;
       dynamic_background_opacity = true;
