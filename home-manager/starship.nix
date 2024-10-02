@@ -119,7 +119,7 @@ in {
     export $PATH=$PATH:${pkgs.starship}/bin/
   '';
 
-  programs.zsh.initExtra = ''
+  programs.zsh.initExtraFirst = ''
     eval "$(${starshipCmd} init zsh)"
   '';
 
