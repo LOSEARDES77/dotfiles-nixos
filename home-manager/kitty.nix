@@ -9,7 +9,7 @@
     font = {
       name = "CaskaydiaCove Nerd Font";
       size = 13;
-    }
+    };
     shellIntegration.enableZshIntegration = true;
     settings = {
       confirm_os_window_close = 0;
@@ -67,8 +67,7 @@
           "U+F300-U+F313"
           "U+E5FA-U+E62B"
         ];
-      in
-        (builtins.concatStringsSep "," mappings);
+      in (builtins.concatStringsSep "," mappings);
     };
   };
 }
