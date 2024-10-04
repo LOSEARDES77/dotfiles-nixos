@@ -29,5 +29,6 @@
     php
     deno
     hugo
+    slack
   ];
 }
