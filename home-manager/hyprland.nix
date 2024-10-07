@@ -44,6 +44,7 @@ in {
         "1password --silent"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "nwg-dock-hyprland -d"
       ];
 
       monitor = [
