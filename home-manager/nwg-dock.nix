@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    nwg-dock-hyprlan
+    nwg-dock-hyprland
   ];
 
-  home.file."~/.config/nwg-dock-hyprland/style.css" = {
+  home.file.".config/nwg-dock-hyprland/style.css" = {
     text = ''
       window {
         background: #171717;
