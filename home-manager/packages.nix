@@ -6,6 +6,9 @@
     ./scripts/vault.nix
   ];
 
+  programs._1password.enable = true;
+  programs._1password-gui.enable = true;
+
   packages = with pkgs; {
     linux = [
       (mpv.override {scripts = [mpvScripts.mpris];})
@@ -18,7 +21,6 @@
       # yabridgectl
       # wine-staging
       nodejs
-      _1password-gui
       fuse
       fuzzel
       cliphist
