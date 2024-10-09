@@ -37,6 +37,8 @@ in {
     ];
   };
   programs.nix-ld.enable = true;
+  programs._1password-gui.enable = true;
+  programs._1password.enable = true;
   home-manager = {
     backupFileExtension = "backup";
     useGlobalPkgs = true;
