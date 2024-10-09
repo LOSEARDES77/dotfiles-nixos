@@ -24,6 +24,7 @@
       cliphist
       warp-terminal
       localsend
+      libreoffice-fresh
     ];
     cli = [
       bat

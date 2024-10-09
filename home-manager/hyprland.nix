@@ -60,7 +60,7 @@ in {
         disable_splash_rendering = false;
         force_default_wallpaper = 1;
         enable_swallow = true;
-        swallow_regex = "^(b|B)lackbox$";
+        swallow_regex = "(foot|kitty|allacritty|Alacritty)";
       };
 
       input = {
