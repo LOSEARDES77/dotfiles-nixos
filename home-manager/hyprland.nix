@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  self,
   ...
 }: let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -17,7 +16,6 @@
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   screenshot = import ./scripts/screenshot.nix pkgs;
 in {
-  home.activation.myScript = "mkdir -p $HOME/.local/share/icons; cp -r ${self}/Hypr-Bibata-Modern-Ice $HOME/.local/share/icons";
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";

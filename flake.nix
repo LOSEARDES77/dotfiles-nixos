@@ -10,6 +10,8 @@
     packages.x86_64-linux.default =
       nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
 
+    home.activation.myScript = "mkdir -p $HOME/.local/share/icons; cp -r ${self}/Hypr-Bibata-Modern-Ice $HOME/.local/share/icons";
+
     # nixos config
     nixosConfigurations = {
       "loseardes77-laptop" = nixpkgs.lib.nixosSystem {
