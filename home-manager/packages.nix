@@ -24,6 +24,7 @@
       warp-terminal
       localsend
       libreoffice-fresh
+      kdePackages.kdenlive
     ];
     cli = [
       bat
