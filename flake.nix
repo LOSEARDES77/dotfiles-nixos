@@ -8,7 +8,7 @@
     ...
   }: {
     packages.x86_64-linux = let
-      iconDir = ${self} /Hypr-Bibata-Modern-Ice;
+      iconDir = "${self}/Hypr-Bibata-Modern-Ice";
     in {
       default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
 
