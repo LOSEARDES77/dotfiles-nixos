@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  self,
   ...
 }: let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
