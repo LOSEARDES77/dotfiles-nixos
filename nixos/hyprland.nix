@@ -41,7 +41,7 @@
     environment.systemPackages = with pkgs; [
       morewaita-icon-theme
       adwaita-icon-theme
-      qogir-icon-theme
+      bibata-cursors
       loupe
       nautilus
       baobab
@@ -99,7 +99,8 @@
       enable = true;
       settings.default_session.command = pkgs.writeShellScript "greeter" ''
         export XKB_DEFAULT_LAYOUT=${config.services.xserver.xkb.layout}
-        export XCURSOR_THEME=Qogir
+        export XCURSOR_THEME=Bibata-Modern-Ice
+        export XCURSOR_SIZE=24
         ${asztal}/bin/greeter
       '';
     };

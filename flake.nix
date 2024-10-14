@@ -7,11 +7,20 @@
     nixpkgs,
     ...
   }: {
-    packages.x86_64-linux.default =
-      nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
+    packages.x86_64-linux = let
+      iconDir = ${self} /Hypr-Bibata-Modern-Ice;
+    in {
+      default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
 
-    home.activation.myScript = "mkdir -p $HOME/.local/share/icons; cp -r ${self}/Hypr-Bibata-Modern-Ice $HOME/.local/share/icons";
+      copy-icons = nixpkgs.stdenv.mkDerivation {
+        name = "copy-icons";
 
+        installPhase = ''
+          mkdir -p $HOME/.local/share/icons
+          cp -r ${iconDir}/* $HOME/.local/share/icons/
+        '';
+      };
+    };
     # nixos config
     nixosConfigurations = {
       "loseardes77-laptop" = nixpkgs.lib.nixosSystem {

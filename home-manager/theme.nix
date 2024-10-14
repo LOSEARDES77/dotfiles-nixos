@@ -24,9 +24,9 @@
     size = 11;
   };
   cursorTheme = {
-    name = "Qogir";
+    name = "Bibata-Modern-Ice";
     size = 24;
-    package = pkgs.qogir-icon-theme;
+    package = pkgs.bibata-cursors;
   };
   iconTheme = {
     name = "MoreWaita";
@@ -62,28 +62,28 @@ in {
         }
       '';
       ".config/fuzzel/fuzzel.ini".text = ''
-font=Gabarito
-terminal=foot -e
-prompt=">>  "
-layer=overlay
+        font=Gabarito
+        terminal=foot -e
+        prompt=">>  "
+        layer=overlay
 
-[colors]
-background=1D1011ff
-text=F7DCDEff
-selection=574144ff
-selection-text=DEBFC2ff
-border=574144dd
-match=FFB2BCff
-selection-match=FFB2BCff
+        [colors]
+        background=1D1011ff
+        text=F7DCDEff
+        selection=574144ff
+        selection-text=DEBFC2ff
+        border=574144dd
+        match=FFB2BCff
+        selection-match=FFB2BCff
 
 
-[border]
-radius=17
-width=1
+        [border]
+        radius=17
+        width=1
 
-[dmenu]
-exit-immediately-if-empty=yes
-'';
+        [dmenu]
+        exit-immediately-if-empty=yes
+      '';
     };
   };
 
