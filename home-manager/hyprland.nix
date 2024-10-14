@@ -87,13 +87,18 @@ in {
       dwindle = {
         pseudotile = "yes";
         preserve_split = "yes";
-        # no_gaps_when_only = "yes";
       };
 
       gestures = {
         workspace_swipe = true;
         workspace_swipe_use_r = true;
       };
+
+      workspace = [
+        "w[t1], gapsout:0, gapsin:0, border: 0, rounding:0"
+        "w[tg1], gapsout:0, border: 0, rounding:0"
+        "f[1], gapsout:0, gapsin:0, border: 0, rounding:0"
+      ];
 
       windowrule = let
         f = regex: "float, ^(${regex})$";
