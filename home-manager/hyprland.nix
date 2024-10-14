@@ -16,6 +16,7 @@
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   screenshot = import ./scripts/screenshot.nix pkgs;
 in {
+  home.activation.myScript = "mkdir -p $HOME/.local/share/icons; cp -r ${self}/Hypr-Bibata-Modern-Ice $HOME/.local/share/icons";
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";
@@ -38,9 +39,13 @@ in {
     ];
 
     settings = {
+      env = [
+        "HYPRCURSOR_THEME, Hypr-Bibata-Modern-Ice"
+        "HYPRCURSOR_SIZE, 24"
+      ];
       exec-once = [
         "ags -b hypr"
-        "hyprctl setcursor Qogir 24"
+        "hyprctl setcursor Hypr-Bibata-Modern-Ice 24"
         "1password --silent"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
