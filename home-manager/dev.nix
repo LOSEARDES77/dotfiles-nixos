@@ -27,7 +27,6 @@
     clippy
     dotnet-sdk_8
     php
-    deno
     hugo
     slack
   ];
