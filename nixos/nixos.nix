@@ -36,6 +36,9 @@ in {
       "user-with-access-to-virtualbox"
     ];
   };
+  environment.systemPackages = [
+    inputs.zen-browser.packages."x86_64-linux".default
+  ];
   programs.nix-ld.enable = true;
   programs._1password-gui.enable = true;
   programs._1password.enable = true;
