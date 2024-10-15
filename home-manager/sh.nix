@@ -69,6 +69,7 @@ in {
         # Deno
         DENO_INSTALL="/home/loseardes77/.deno"
         PATH="/home/loseardes77/.deno/bin:$PATH"
+        eval "$(deno completions zsh)"
 
         # Download Zinit, if it's not there yet
         if [ ! -d "$ZINIT_HOME" ]; then
