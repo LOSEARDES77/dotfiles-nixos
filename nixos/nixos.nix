@@ -39,6 +39,17 @@ in {
   environment.systemPackages = [
     inputs.zen-browser.packages."x86_64-linux".default
   ];
+
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        zen-bin
+        .zen-wrapped
+      '';
+      mode = "0755";
+    };
+  };
+
   programs.nix-ld.enable = true;
   programs._1password-gui.enable = true;
   programs._1password.enable = true;
