@@ -45,6 +45,7 @@ in {
       text = ''
         zen-bin
         .zen-wrapped
+        zen
       '';
       mode = "0755";
     };
