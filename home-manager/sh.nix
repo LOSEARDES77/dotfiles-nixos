@@ -66,6 +66,9 @@ in {
         # Set the directory we want to store zinit and plugins
         ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
         PATH=$PATH:/home/loseardes77/.cargo/bin:/home/loseardes77/.fzf/bin
+        # Deno
+        DENO_INSTALL="/home/loseardes77/.deno"
+        PATH="/home/loseardes77/.deno/bin:$PATH"
 
         # Download Zinit, if it's not there yet
         if [ ! -d "$ZINIT_HOME" ]; then
