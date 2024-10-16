@@ -11,15 +11,6 @@
       iconDir = "${self}/Hypr-Bibata-Modern-Ice";
     in {
       default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
-
-      copy-icons = nixpkgs.stdenv.mkDerivation {
-        name = "copy-icons";
-
-        installPhase = ''
-          mkdir -p $HOME/.local/share/icons
-          cp -r ${iconDir}/* $HOME/.local/share/icons/
-        '';
-      };
     };
     # nixos config
     nixosConfigurations = {
