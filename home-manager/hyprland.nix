@@ -137,7 +137,7 @@ in {
           ",Print,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER, Return, exec, kitty" # xterm is a symlink, not actually xterm
-          "SUPER, W, exec, firefox"
+          "SUPER, W, exec, xdg-open https://"
           "SUPER, E, exec, kitty lf"
           "SUPER SHIFT, E, exec, nautilus"
 
