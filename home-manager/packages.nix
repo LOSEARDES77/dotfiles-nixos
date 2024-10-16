@@ -25,6 +25,8 @@
       localsend
       libreoffice-fresh
       kdePackages.kdenlive
+      imagemagick_light
+      wofi
     ];
     cli = [
       bat
