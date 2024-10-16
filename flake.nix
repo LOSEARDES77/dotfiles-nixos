@@ -21,22 +21,6 @@
         '';
       };
     };
-    overlays = [
-      (_: _final: prev: {
-        cliphist = prev.cliphist.overrideAttrs (_oldAttrs: rec {
-          version = "0.6.1";
-
-          src = prev.fetchFromGitHub {
-            owner = "sentriz";
-            repo = "cliphist";
-            rev = "refs/tags/v${version}";
-            hash = "sha256-tImRbWjYCdIY8wVMibc5g5/qYZGwgT9pl4pWvY7BDlI=";
-          };
-
-          vendorHash = "sha256-gG8v3JFncadfCEUa7iR6Sw8nifFNTciDaeBszOlGntU=";
-        });
-      })
-    ];
     # nixos config
     nixosConfigurations = {
       "loseardes77-laptop" = nixpkgs.lib.nixosSystem {
@@ -49,22 +33,6 @@
           ./nixos/nixos.nix
           home-manager.nixosModules.home-manager
           {networking.hostName = "loseardes77-laptop";}
-        ];
-      };
-    };
-
-    # macos hm config
-    homeConfigurations = {
-      "loseardes77" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ({pkgs, ...}: {
-            nix.package = pkgs.nix;
-            home.username = "loseardes77";
-            home.homeDirectory = "/Users/loseardes77";
-            imports = [./macos/home.nix];
-          })
         ];
       };
     };
