@@ -617,15 +617,15 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1729061769,
-        "narHash": "sha256-bKyGJDPFMcewA1oNEcI0aeDxKQZBnMsdH6vWwDrBAAo=",
-        "owner": "LOSEARDES77",
+        "lastModified": 1729027079,
+        "narHash": "sha256-jxzVFcZybNHBnWZtuhPVubxw+qS17L63Y7hUGoitiVk=",
+        "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "40afb34b4379d37472c6b4bc1d46ea3620c21c60",
+        "rev": "c484b49834b8f7f275a3005bd63ae9113ea37ab6",
         "type": "github"
       },
       "original": {
-        "owner": "LOSEARDES77",
+        "owner": "0xc000022070",
         "repo": "zen-browser-flake",
         "type": "github"
       }
