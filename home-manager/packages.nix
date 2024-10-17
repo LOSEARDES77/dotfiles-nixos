@@ -43,6 +43,7 @@
       kdePackages.kdenlive
       imagemagick_light
       wofi
+      cliphist
     ];
     cli = [
       bat
