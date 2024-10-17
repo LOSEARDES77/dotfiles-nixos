@@ -7,9 +7,7 @@
     nixpkgs,
     ...
   }: {
-    packages.x86_64-linux = let
-      iconDir = "${self}/Hypr-Bibata-Modern-Ice";
-    in {
+    packages.x86_64-linux = {
       default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
     };
     # nixos config
@@ -24,6 +22,24 @@
           ./nixos/nixos.nix
           home-manager.nixosModules.home-manager
           {networking.hostName = "loseardes77-laptop";}
+          {
+            nixpkgs.overlays = [
+              (
+                final: prev: {
+                  cliphist = prev.cliphist.overrideAttrs (_oldAttrs: rec {
+                    version = "0.6.1";
+                    src = final.fetchFromGitHub {
+                      owner = "sentriz";
+                      repo = "cliphist";
+                      rev = "refs/tags/v${version}";
+                      hash = "sha256-tImRbWjYCdIY8wVMibc5g5/qYZGwgT9pl4pWvY7BDlI=";
+                    };
+                    vendorHash = "sha256-gG8v3JFncadfCEUa7iR6Sw8nifFNTciDaeBszOlGntU=";
+                  });
+                }
+              )
+            ];
+          }
         ];
       };
     };
@@ -58,24 +74,5 @@
       url = "github:gokcehan/lf";
       flake = false;
     };
-  };
-
-  channels.nixpkgs = {
-    overlaysBuilder = channels: [
-      (
-        final: prev: {
-          cliphist = prev.cliphist.overrideAttrs (_oldAttrs: rec {
-            version = "0.6.1";
-            src = final.fetchFromGitHub {
-              owner = "sentriz";
-              repo = "cliphist";
-              rev = "refs/tags/v${version}";
-              hash = "sha256-tImRbWjYCdIY8wVMibc5g5/qYZGwgT9pl4pWvY7BDlI=";
-            };
-            vendorHash = "sha256-gG8v3JFncadfCEUa7iR6Sw8nifFNTciDaeBszOlGntU=";
-          });
-        }
-      )
-    ];
   };
 }
