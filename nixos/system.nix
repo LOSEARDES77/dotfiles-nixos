@@ -46,7 +46,7 @@ in {
     nixos-bgrt-plymouth
     mission-center
     lightly-qt
-    kdePackages.qt5ct
+    libsForQt5.qt5ct
     egl-wayland
     alejandra
   ];
