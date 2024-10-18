@@ -8,7 +8,8 @@
 
   home = {
     sessionVariables = {
-      QT_XCB_GL_INTEGRATION = "none"; # kde-connect
+      QT_XCB_GL_INTEGRATION = "none"; # kde-connectQT_QT_
+      QT_QPA_PLATFORMTHEME = "qt6ct";
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
       BAT_THEME = "base16";

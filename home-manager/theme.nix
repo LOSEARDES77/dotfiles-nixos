@@ -43,6 +43,7 @@ in {
       iconTheme.package
       adwaita-icon-theme
       papirus-icon-theme
+      lightly-qt
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
