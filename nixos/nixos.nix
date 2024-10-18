@@ -38,6 +38,7 @@ in {
   };
   environment.systemPackages = [
     inputs.zen-browser.packages."x86_64-linux".default
+    inputs.hyprsysteminfo.packages."x86_64-linux".default
   ];
 
   environment.etc = {

@@ -48,6 +48,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    hyprsysteminfo.url = "github:hyprwm/hyprsysteminfo";
 
     home-manager = {
       url = "github:nix-community/home-manager";
