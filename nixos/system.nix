@@ -46,7 +46,7 @@ in {
     nixos-bgrt-plymouth
     mission-center
     lightly-qt
-    kdePackages.qt6ct
+    kdePackages.qt5ct
     egl-wayland
     alejandra
   ];

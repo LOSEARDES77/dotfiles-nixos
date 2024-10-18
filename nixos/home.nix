@@ -13,7 +13,7 @@
   home = {
     sessionVariables = {
       QT_XCB_GL_INTEGRATION = "none"; # kde-connectQT_QT_
-      QT_QPA_PLATFORMTHEME = lib.mkDefault "qt6ct";
+      QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
       BAT_THEME = "base16";
