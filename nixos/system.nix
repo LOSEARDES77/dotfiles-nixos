@@ -128,7 +128,10 @@ in {
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
-    settings.General.Experimental = true; # for gnome-bluetooth percentage
+    settings.General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
+    };
   };
 
   programs.steam = {
