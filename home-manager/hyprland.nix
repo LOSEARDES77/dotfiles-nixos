@@ -139,7 +139,7 @@ in {
           "SUPER, Return, exec, kitty" # xterm is a symlink, not actually xterm
           "SUPER, W, exec, xdg-open https://"
           "SUPER, E, exec, kitty lf"
-          "SUPER SHIFT, E, exec, nautilus"
+          "SUPER SHIFT, E, exec, dolphin"
 
           # youtube
           ", XF86Launch1,  exec, ${yt}"

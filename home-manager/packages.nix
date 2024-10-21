@@ -44,6 +44,7 @@
       imagemagick_light
       wofi
       cliphist
+      dolphin
     ];
     cli = [
       bat
