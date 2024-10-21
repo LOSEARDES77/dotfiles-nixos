@@ -120,8 +120,8 @@ in {
     export $PATH=$PATH:${pkgs.starship}/bin/
   '';
 
-  programs.zsh.initExtraFirst = ''
-    source ${config.xdg.cacheHome}/starship/init.zsh
+  programs.zsh.initExtra = ''
+    PATH=$PATH:${pkgs.starship}/bin
   '';
 
   programs.nushell = {

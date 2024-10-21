@@ -55,8 +55,8 @@ in {
           };
         }
       ];
-
       initExtra = ''
+
         SHELL=\${pkgs.zsh}/bin/zsh
         zstyle ':completion:*' menu select
         bindkey "^[[1;5C" forward-word
@@ -82,6 +82,10 @@ in {
 
         # Add in starship
         # zinit light 'starship/starship'
+        zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+        zinit light starship/starship
 
         # Add in zsh plugins
         zinit light zsh-users/zsh-syntax-highlighting
