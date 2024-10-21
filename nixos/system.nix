@@ -108,6 +108,11 @@ in {
     virtualHosts."localhost".documentRoot = "/var/www/html";
   };
 
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # kde connect
   networking.firewall = rec {
     allowedTCPPortRanges = [
@@ -119,6 +124,7 @@ in {
     allowedTCPPorts = [22];
     allowedUDPPortRanges = allowedTCPPortRanges;
     enable = false;
+    allowPing = true;
   };
 
   # network
