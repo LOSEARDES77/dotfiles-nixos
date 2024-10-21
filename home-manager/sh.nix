@@ -22,7 +22,7 @@
     "gcm" = "git commit -m";
     "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
     "flake-update" = "cd $HOME/.config/dotfiles-nixos && git pull && nix flake update && git add flake.lock && git commit -m 'Update flake.lock' && git push && update";
-    "fol" = "firefox -new-window file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf && gnome-calculator &> /dev/null & disown && exit";
+    "fol" = "xdg-open /home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf && gnome-calculator &> /dev/null & disown && exit";
   };
 in {
   options.shellAliases = with lib;
@@ -81,7 +81,7 @@ in {
         source "$ZINIT_HOME/zinit.zsh"
 
         # Add in starship
-        zinit light 'starship/starship'
+        # zinit light 'starship/starship'
 
         # Add in zsh plugins
         zinit light zsh-users/zsh-syntax-highlighting

@@ -109,6 +109,13 @@
       "d '/var/cache/greeter' - greeter greeter - -"
     ];
 
+    system.activationScripts.starship = {
+      text = ''
+        mkdir -p /home/loseardes77/.cache/starship
+        ${pkgs.starship}/bin/starship init zsh > /home/loseardes77/.cache/starship/init.zsh
+      '';
+    };
+
     system.activationScripts.wallpaper = let
       wp = pkgs.writeShellScript "wp" ''
         CACHE="/var/cache/greeter"

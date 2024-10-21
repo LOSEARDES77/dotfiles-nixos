@@ -33,6 +33,7 @@
       "[❯](bold purple)"
       ''''${custom.space}''
     ];
+    command_timeout = 50;
     custom.space = {
       when = ''! test $env'';
       format = "  ";
@@ -120,7 +121,7 @@ in {
   '';
 
   programs.zsh.initExtraFirst = ''
-    eval "$(${starshipCmd} init zsh)"
+    source ${config.xdg.cacheHome}/starship/init.zsh
   '';
 
   programs.nushell = {
