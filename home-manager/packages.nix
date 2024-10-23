@@ -45,6 +45,7 @@
       wofi
       cliphist
       dolphin
+      kdePackages.ark
     ];
     cli = [
       bat

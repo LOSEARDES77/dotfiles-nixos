@@ -80,11 +80,12 @@ in {
         # Source/Load zinit
         source "$ZINIT_HOME/zinit.zsh"
 
+        zinit ice wait'!0'
+
         # Add in starship
-        # zinit light 'starship/starship'
-        zinit ice as"command" from"gh-r" \
+        zinit ice wait'!0' as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
+          atpull"%atclone" src"init.zsh" atload"eval \$(starship init zsh)"
         zinit light starship/starship
 
         # Add in zsh plugins
