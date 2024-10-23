@@ -38,6 +38,17 @@
                   });
                 }
               )
+              (
+                final: prev: {
+                  vscode = prev.vscode.overrideAttrs (old: {
+                    patches =
+                      (old.patches or [])
+                      ++ [
+                        /home/loseardes77/.config/dotfiles-nixos/vscode.patch
+                      ];
+                  });
+                }
+              )
             ];
           }
         ];
