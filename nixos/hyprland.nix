@@ -59,7 +59,6 @@
       wayshot
       pavucontrol
       brightnessctl
-      swww
     ];
 
     systemd = {
