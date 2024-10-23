@@ -26,20 +26,6 @@
             nixpkgs.overlays = [
               (
                 final: prev: {
-                  cliphist = prev.cliphist.overrideAttrs (_oldAttrs: rec {
-                    version = "0.6.1";
-                    src = final.fetchFromGitHub {
-                      owner = "sentriz";
-                      repo = "cliphist";
-                      rev = "refs/tags/v${version}";
-                      hash = "sha256-tImRbWjYCdIY8wVMibc5g5/qYZGwgT9pl4pWvY7BDlI=";
-                    };
-                    vendorHash = "sha256-gG8v3JFncadfCEUa7iR6Sw8nifFNTciDaeBszOlGntU=";
-                  });
-                }
-              )
-              (
-                final: prev: {
                   vscode = prev.vscode.overrideAttrs (old: {
                     patches =
                       (old.patches or [])
@@ -59,26 +45,25 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    hyprsysteminfo.url = "github:hyprwm/hyprsysteminfo";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
+    hyprsysteminfo.url = "github:hyprwm/hyprsysteminfo";
 
     hyprland-hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
 
-    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    matugen.url = "github:InioX/matugen?ref=v2.3.0";
     ags.url = "github:Aylur/ags";
     astal.url = "github:Aylur/astal";
 
