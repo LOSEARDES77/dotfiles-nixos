@@ -49,6 +49,8 @@ in {
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "nwg-dock-hyprland -d"
+        "hyprpaper"
+        "hypridle"
       ];
 
       monitor = [
@@ -140,6 +142,7 @@ in {
           "SUPER, W, exec, xdg-open https://"
           "SUPER, E, exec, kitty lf"
           "SUPER SHIFT, E, exec, dolphin"
+          "SUPER, L, exec, hyprlock"
 
           # youtube
           ", XF86Launch1,  exec, ${yt}"
@@ -154,12 +157,12 @@ in {
           "Super, V, exec, /home/loseardes77/.config/dotfiles-nixos/home-manager/scripts/show-clipboard.sh"
           "Super, F, exec, firefox -new-window file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf &> /dev/null & disown && gnome-calculator &> /dev/null &"
 
-          (mvfocus "k" "u")
-          (mvfocus "j" "d")
-          (mvfocus "l" "r")
-          (mvfocus "h" "l")
-          (ws "left" "e-1")
-          (ws "right" "e+1")
+          (mvfocus "up" "u")
+          (mvfocus "down" "d")
+          (mvfocus "right" "r")
+          (mvfocus "left" "l")
+          (ws "mouse_down" "e-1")
+          (ws "mouse_up" "e+1")
           (mvtows "left" "e-1")
           (mvtows "right" "e+1")
           (resizeactive "k" "0 -20")
@@ -191,6 +194,8 @@ in {
         ",XF86AudioNext,    exec, ${playerctl} next"
         ",XF86AudioMute,    exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
         ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+        " switch:on:[Lid Switch],  exec, hyprctl keyword monitor \"eDP-1, disable\""
+        " switch:off:[Lid Switch], exec, hyprctl keyword monitor \"eDP-1, 1920x1080, 0x0, 1\""
       ];
 
       bindm = [
