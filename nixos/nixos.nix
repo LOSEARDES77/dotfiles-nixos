@@ -39,6 +39,10 @@ in {
   environment.systemPackages = [
     inputs.zen-browser.packages."x86_64-linux".default
     inputs.hyprsysteminfo.packages."x86_64-linux".default
+    inputs.hyprlock.packages."x86_64-linux".default
+    inputs.hypridle.packages."x86_64-linux".default
+    inputs.hyprpaper.packages."x86_64-linux".default
+    inputs.hyprpolkitagent.packages."x86_64-linux".default
   ];
 
   environment.etc = {
