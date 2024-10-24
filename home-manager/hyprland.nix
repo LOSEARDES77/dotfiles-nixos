@@ -194,8 +194,8 @@ in {
         ",XF86AudioNext,    exec, ${playerctl} next"
         ",XF86AudioMute,    exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
         ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
-        " switch:on:[Lid Switch],  exec, hyprctl keyword monitor \"eDP-1, disable\""
-        " switch:off:[Lid Switch], exec, hyprctl keyword monitor \"eDP-1, 1920x1080, 0x0, 1\""
+        ",switch:on:[Lid Switch],  exec, hyprctl keyword monitor \"eDP-1, disable\""
+        ",switch:off:[Lid Switch], exec, hyprctl keyword monitor \"eDP-1, 1920x1080, 0x0, 1\""
       ];
 
       bindm = [
