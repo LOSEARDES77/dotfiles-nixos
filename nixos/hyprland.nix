@@ -62,14 +62,14 @@
     ];
 
     systemd = {
-      user.services.polkit-gnome-authentication-agent-1 = {
-        description = "polkit-gnome-authentication-agent-1";
+      user.services.polkit-hyprland-authentication-agent = {
+        description = "polkit-gnome-authentication-agent";
         wantedBy = ["graphical-session.target"];
         wants = ["graphical-session.target"];
         after = ["graphical-session.target"];
         serviceConfig = {
           Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          ExecStart = "${inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent}/libexec/hyprpolkitagent";
           Restart = "on-failure";
           RestartSec = 1;
           TimeoutStopSec = 10;
