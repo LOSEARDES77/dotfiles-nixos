@@ -43,7 +43,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     home-manager = {
