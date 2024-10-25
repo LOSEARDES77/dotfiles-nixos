@@ -58,11 +58,6 @@
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprsysteminfo.url = "github:hyprwm/hyprsysteminfo";
 
-    hyprland-hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     matugen.url = "github:InioX/matugen?ref=v2.3.0";
     ags.url = "github:Aylur/ags";
     astal.url = "github:Aylur/astal";
