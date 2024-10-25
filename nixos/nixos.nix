@@ -34,6 +34,7 @@ in {
       "docker"
       "vboxusers"
       "user-with-access-to-virtualbox"
+      "input"
     ];
   };
   environment.systemPackages = [
