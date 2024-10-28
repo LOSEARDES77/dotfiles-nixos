@@ -113,22 +113,24 @@ in {
     openFirewall = true;
   };
 
-  # kde connect
-  networking.firewall = rec {
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      }
-    ];
-    allowedTCPPorts = [22];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-    enable = false;
-    allowPing = true;
-  };
-
   # network
-  networking.networkmanager.enable = true;
+  networking = {
+    firewall = rec {
+      # kdeconnect
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
+      allowedTCPPorts = [22];
+      allowedUDPPortRanges = allowedTCPPortRanges;
+      enable = false;
+      allowPing = true;
+    };
+    networkmanager.enable = true;
+    nameservers = ["1.1.1.1" "9.9.9.9"];
+  };
 
   # bluetooth
   hardware.bluetooth = {
