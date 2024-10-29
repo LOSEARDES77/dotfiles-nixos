@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    jetbrains.idea-ultimate
-    jetbrains.phpstorm
-    jetbrains.webstorm
+    jetbrains-toolbox
     zed-editor
     cmake
     libtool
