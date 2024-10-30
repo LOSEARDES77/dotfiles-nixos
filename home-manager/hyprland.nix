@@ -51,6 +51,7 @@ in {
         "nwg-dock-hyprland -d"
         "hyprpaper"
         "hypridle"
+        "jetbrains-toolbox"
       ];
 
       monitor = [

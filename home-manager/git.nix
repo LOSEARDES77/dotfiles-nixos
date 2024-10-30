@@ -22,9 +22,12 @@ Host losecloud
   User ubuntu
   IdentityFile ~/.ssh/losecloud.key
   Port 22
+Host apachevbox
+  HostName 127.0.0.1
+  User usuario
+  Port 4320
 ";
   };
-
 
   services.ssh-agent.enable = true;
 }
