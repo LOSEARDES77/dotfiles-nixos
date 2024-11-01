@@ -70,6 +70,7 @@ in {
         PermitRootLogin = "prohibit-password";
       };
     };
+    ollama.enable = true;
   };
 
   # fonts

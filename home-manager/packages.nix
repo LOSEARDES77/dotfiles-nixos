@@ -46,6 +46,7 @@
       cliphist
       dolphin
       kdePackages.ark
+      ollama
     ];
     cli = [
       bat
