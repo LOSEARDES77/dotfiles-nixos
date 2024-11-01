@@ -8,6 +8,7 @@
     "db" = "distrobox";
     "tree" = "lsd --tree";
     "nv" = "nvim";
+    "vi" = "nvim";
 
     "ls" = "lsd -h";
     "l" = "lsd -h";
