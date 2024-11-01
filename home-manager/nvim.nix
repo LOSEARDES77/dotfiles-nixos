@@ -31,6 +31,7 @@
     withPython3 = true;
 
     extraPackages = with pkgs; [
+      nvchad
       git
       gcc
       gnumake

@@ -35,6 +35,9 @@
                   });
                 }
               )
+              (final: prev: {
+                nvchad = inputs.nvchad4nix.packages."x86_64-linux".nvchad;
+              })
             ];
           }
         ];
