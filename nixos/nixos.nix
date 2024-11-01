@@ -5,6 +5,7 @@
   ...
 }: let
   username = "loseardes77";
+  system = "x86_64-linux";
 in {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -38,12 +39,13 @@ in {
     ];
   };
   environment.systemPackages = [
-    inputs.zen-browser.packages."x86_64-linux".default
-    inputs.hyprsysteminfo.packages."x86_64-linux".default
-    inputs.hyprlock.packages."x86_64-linux".default
-    inputs.hypridle.packages."x86_64-linux".default
-    inputs.hyprpaper.packages."x86_64-linux".default
-    inputs.hyprpolkitagent.packages."x86_64-linux".default
+    inputs.zen-browser.packages.${system}.default
+    inputs.hyprsysteminfo.packages.${system}.default
+    inputs.hyprlock.packages.${system}.default
+    inputs.hypridle.packages.${system}.default
+    inputs.hyprpaper.packages.${system}.default
+    inputs.hyprpolkitagent.packages.${system}.default
+    inputs.nvchad4nix.packages.${system}.default
   ];
 
   environment.etc = {
