@@ -17,13 +17,22 @@
 
     "cat" = "bat";
     "vim" = "nvim";
-    "c" = "clear";
     "gp" = "git push";
     "ga" = "git add .";
-    "gcm" = "git commit -m";
+    "gcm" = "git commit";
     "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
-    "flake-update" = "cd $HOME/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; update";
-    "fol" = "xdg-open /home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf; gnome-calculator &> /dev/null & disown; exit";
+    "flake-update" = "cd /home/loseardes77/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
+    "fol" = "xdg-open /home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
+  };
+  aliasesnu = {
+    "cat" = "bat";
+    "vim" = "nvim";
+    "gp" = "git push";
+    "ga" = "git add .";
+    "gcm" = "git commit";
+    "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
+    "flake-update" = "cd /home/loseardes77/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
+    "fol" = "xdg-open /home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
   };
 in {
   options.shellAliases = with lib;
@@ -137,7 +146,7 @@ in {
     };
 
     nushell = {
-      shellAliases = aliases // config.shellAliases;
+      shellAliases = aliasesnu // config.shellAliases;
       enable = true;
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = "\"  \"";
