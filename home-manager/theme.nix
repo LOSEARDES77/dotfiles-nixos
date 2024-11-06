@@ -104,7 +104,7 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "kde";
+    platformTheme.name = "qt5ct";
   };
 
   home.file.".local/share/flatpak/overrides/global".text = let

@@ -42,7 +42,7 @@ in {
     git
     wget
     gh
-    kdePackages.plasma-browser-integration
+    # kdePackages.plasma-browser-integration
     nixos-bgrt-plymouth
     mission-center
     lightly-qt
