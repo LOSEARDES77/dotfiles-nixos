@@ -214,7 +214,7 @@ in {
           sharp = true;
           color = "rgba(00000044)";
           color_inactive = "rgba(00000088)";
-          offset = "[5, 5]";
+          offset = "5 5";
         };
 
         blur = {
