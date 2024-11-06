@@ -13,6 +13,7 @@
 
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  swayosd-client = "${pkgs.swayosd}/bin/swayosd-client";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   screenshot = import ./scripts/screenshot.nix pkgs;
 in {
@@ -52,6 +53,7 @@ in {
         "hyprpaper"
         "hypridle"
         "jetbrains-toolbox"
+        "${pkgs.swayosd}/bin/swayosd-server"
       ];
 
       monitor = [
@@ -179,12 +181,10 @@ in {
         ++ (map (i: mvtows (toString i) (toString i)) arr);
 
       bindle = [
-        ",XF86MonBrightnessUp,   exec, ${brightnessctl} set +5%"
-        ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
-        ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
-        ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
-        ",XF86AudioRaiseVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
-        ",XF86AudioLowerVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
+        ",XF86MonBrightnessUp,   exec, ${swayosd-client} --brightness +5"
+        ",XF86MonBrightnessDown, exec, ${swayosd-client} --brightness -5"
+        ",XF86AudioRaiseVolume,  exec, ${swayosd-client} --output-volume 5"
+        ",XF86AudioLowerVolume,  exec, ${swayosd-client} --output-volume -5"
       ];
 
       bindl = [

@@ -39,6 +39,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      swayosd
       morewaita-icon-theme
       adwaita-icon-theme
       bibata-cursors
@@ -107,6 +108,21 @@
     systemd.tmpfiles.rules = [
       "d '/var/cache/greeter' - greeter greeter - -"
     ];
+
+    systemd.services.swayosd = {
+      enable = true;
+      description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc...";
+      documentation = ["https://github.com/ErikReider/SwayOSD"];
+      partOf = ["graphical.target"];
+      after = ["graphical.target"];
+      wantedBy = ["graphical.target"];
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.erikreider.swayosd";
+        ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
+        Restart = "on-failure";
+      };
+    };
 
     system.activationScripts.starship = {
       text = ''
