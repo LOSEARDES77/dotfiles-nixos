@@ -205,12 +205,17 @@ in {
       ];
 
       decoration = {
-        drop_shadow = "yes";
-        shadow_range = 8;
-        shadow_render_power = 2;
-        "col.shadow" = "rgba(00000044)";
-
         dim_inactive = false;
+
+        shadow = {
+          enabled = true;
+          range = 8;
+          render_power = 3;
+          sharp = true;
+          color = "rgba(00000044)";
+          color_inactive = "rgba(00000088)";
+          offset = "[5, 5]";
+        };
 
         blur = {
           enabled = true;

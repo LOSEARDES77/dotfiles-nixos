@@ -136,6 +136,7 @@ in {
         # Shell integrations
         eval "$(fzf --zsh)"
         eval "$(zoxide init --cmd cd zsh)"
+        printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
       '';
     };
 
