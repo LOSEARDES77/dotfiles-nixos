@@ -24,17 +24,6 @@
           {networking.hostName = "loseardes77-laptop";}
           {
             nixpkgs.overlays = [
-              (
-                final: prev: {
-                  vscode = prev.vscode.overrideAttrs (old: {
-                    patches =
-                      (old.patches or [])
-                      ++ [
-                        /home/loseardes77/.config/dotfiles-nixos/vscode.patch
-                      ];
-                  });
-                }
-              )
               (final: prev: {
                 nvchad = inputs.nvchad4nix.packages."x86_64-linux".nvchad;
               })
