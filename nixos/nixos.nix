@@ -46,6 +46,7 @@ in {
     inputs.hyprpaper.packages.${system}.default
     inputs.hyprpolkitagent.packages.${system}.default
     inputs.nvchad4nix.packages.${system}.default
+    pkgs.nh
   ];
 
   environment.etc = {

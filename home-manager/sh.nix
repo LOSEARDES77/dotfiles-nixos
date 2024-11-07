@@ -20,9 +20,9 @@
     "gp" = "git push";
     "ga" = "git add .";
     "gcm" = "git commit";
-    "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
+    "update" = "nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
     "flake-update" = "cd /home/loseardes77/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
-    "fol" = "xdg-open /home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
+    "fol" = "zen file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
   };
   aliasesnu = {
     "cat" = "bat";
@@ -32,7 +32,7 @@
     "gcm" = "git commit";
     "update" = "sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
     "flake-update" = "cd /home/loseardes77/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; sudo nixos-rebuild switch --flake /home/loseardes77/.config/dotfiles-nixos --impure";
-    "fol" = "xdg-open /home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
+    "fol" = "zen file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
   };
 in {
   options.shellAliases = with lib;
