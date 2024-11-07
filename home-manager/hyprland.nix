@@ -207,7 +207,7 @@ in {
 
       decoration = {
         dim_inactive = true;
-        dim_strength = 0.5;
+        dim_strength = 0.1;
 
         shadow = {
           enabled = true;
