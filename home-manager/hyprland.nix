@@ -67,9 +67,10 @@ in {
 
       misc = {
         disable_splash_rendering = false;
-        force_default_wallpaper = 1;
+        force_default_wallpaper = -1;
         enable_swallow = true;
         swallow_regex = "(foot|kitty|allacritty|Alacritty)";
+        focus_on_activate = true;
       };
 
       input = {
@@ -193,8 +194,8 @@ in {
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMute,    exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
-        ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+        ",XF86AudioMute,    exec, ${swayosd-client} --output-volume mute-toggle"
+        ",XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
         ",switch:on:[Lid Switch],  exec, hyprctl keyword monitor \"eDP-1, disable\""
         ",switch:off:[Lid Switch], exec, hyprctl keyword monitor \"eDP-1, 1920x1080, 0x0, 1\""
       ];
@@ -205,7 +206,8 @@ in {
       ];
 
       decoration = {
-        dim_inactive = false;
+        dim_inactive = true;
+        dim_strength = 0.5;
 
         shadow = {
           enabled = true;
