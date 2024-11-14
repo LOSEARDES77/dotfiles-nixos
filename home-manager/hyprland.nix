@@ -135,9 +135,8 @@ in {
         arr = [1 2 3 4 5 6 7];
       in
         [
-          "ALT, SPACE,     " # TODO: Configure a app launcher
-          ",XF86PowerOff,  exec, echo a"
-          ",XF86Launch4,   ${e} -r 'recorder.start()'"
+          "ALT, SPACE,     exec, walker"
+          ",XF86PowerOff,  exec, wleave -p layer-shell"
           ",Print,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER, Return, exec, kitty" # xterm is a symlink, not actually xterm
