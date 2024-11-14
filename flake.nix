@@ -70,9 +70,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    inputs.walker = {
+    walker = {
       url = "github:abenz1267/walker";
-      input.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lf-icons = {
