@@ -33,7 +33,6 @@
       "[❯](bold purple)"
       ''''${custom.space}''
     ];
-    command_timeout = 50;
     custom.space = {
       when = ''! test $env'';
       format = "  ";
@@ -117,11 +116,10 @@ in {
 
   programs.bash.initExtra = ''
     eval "$(${starshipCmd} init bash)"
-    export $PATH=$PATH:${pkgs.starship}/bin/
   '';
 
   programs.zsh.initExtra = ''
-    PATH=$PATH:${pkgs.starship}/bin
+    eval "$(${starshipCmd} init zsh)"
   '';
 
   programs.nushell = {

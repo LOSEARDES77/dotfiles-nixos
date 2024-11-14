@@ -1,5 +1,9 @@
-let
-  name = "LOSEARDES77";
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  name = "Aylur";
 in {
   programs.git = {
     enable = true;
@@ -10,24 +14,14 @@ in {
       github.user = name;
       push.autoSetupRemote = true;
     };
-    userEmail = "loseardes77@gmail.com";
+    userEmail = "k.demeter@protonmail.com";
     userName = name;
   };
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
-    extraConfig = "
-Host losecloud
-  HostName 143.47.56.219
-  User ubuntu
-  IdentityFile ~/.ssh/losecloud.key
-  Port 22
-Host apachevbox
-  HostName 127.0.0.1
-  User usuario
-  Port 4320
-";
   };
-
-  services.ssh-agent.enable = true;
+  services.ssh-agent = {
+    enable = lib.modules.mkIf pkgs.stdenv.isLinux true;
+  };
 }

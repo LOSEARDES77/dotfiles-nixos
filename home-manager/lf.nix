@@ -18,7 +18,6 @@
     zip
     unzip
     gnutar
-    ctpv
   ];
 
   programs.lf = {
@@ -28,7 +27,7 @@
       trash = ''
         ''${{
           set -f
-          gio trash $fx
+          gio trash "$fx"
         }}
       '';
     in {
@@ -107,16 +106,6 @@
       V = "pager";
       f = "fzf";
     };
-
-    previewer = {
-      keybinding = "i";
-      source = "${pkgs.ctpv}/bin/ctpv";
-    };
-    extraConfig = ''
-      &${pkgs.ctpv}/bin/ctpv -s $id
-      cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
-      set cleaner ${pkgs.ctpv}/bin/ctpvclear
-    '';
 
     settings = {
       scrolloff = 4;

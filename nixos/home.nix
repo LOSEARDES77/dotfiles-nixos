@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   news.display = "show";
 
   nix.settings = {
@@ -12,8 +8,7 @@
 
   home = {
     sessionVariables = {
-      QT_XCB_GL_INTEGRATION = "none"; # kde-connectQT_QT_
-      QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
+      QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
       BAT_THEME = "base16";
@@ -23,19 +18,31 @@
 
     sessionPath = [
       "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
     ];
   };
 
   gtk.gtk3.bookmarks = let
     home = config.home.homeDirectory;
   in [
-    "file://${home} Home"
-    "file://${home}/Documents Documents"
-    "file://${home}/Downloads Downloads"
-    "file://${home}/Projects Projects"
+    "file://${home}/Documents"
+    "file://${home}/Music"
+    "file://${home}/Pictures"
+    "file://${home}/Videos"
+    "file://${home}/Downloads"
+    "file://${home}/Desktop"
+    "file://${home}/Work"
+    "file://${home}/Projects"
+    "file://${home}/Vault"
+    "file://${home}/School"
     "file://${home}/.config Config"
   ];
+
+  services = {
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "21.11";

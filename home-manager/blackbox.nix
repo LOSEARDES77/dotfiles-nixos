@@ -13,7 +13,7 @@
 
     settings = {
       command-as-login-shell = true;
-      custom-shell-command = "${pkgs.zsh}/bin/zsh";
+      custom-shell-command = "${pkgs.tmux}/bin/tmux";
       use-custom-command = true;
       font = "CaskaydiaCove Nerd Font 12";
       fill-tabs = true;

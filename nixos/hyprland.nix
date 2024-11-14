@@ -1,8 +1,6 @@
 {
   pkgs,
-  inputs,
   config,
-  asztal,
   lib,
   ...
 }: {
@@ -20,11 +18,7 @@
 
     services.xserver.displayManager.startx.enable = true;
 
-    programs.hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      xwayland.enable = true;
-    };
+    programs.hyprland.enable = true;
 
     xdg.portal = {
       enable = true;
@@ -35,14 +29,13 @@
 
     security = {
       polkit.enable = true;
-      pam.services.ags = {};
+      pam.services.astal-auth = {};
     };
 
     environment.systemPackages = with pkgs; [
-      swayosd
       morewaita-icon-theme
       adwaita-icon-theme
-      bibata-cursors
+      qogir-icon-theme
       loupe
       nautilus
       baobab
@@ -55,22 +48,19 @@
       gnome-calculator
       gnome-clocks
       gnome-software # for flatpak
-      wl-gammactl
       wl-clipboard
-      wayshot
-      pavucontrol
-      brightnessctl
+      wl-gammactl
     ];
 
     systemd = {
-      user.services.polkit-hyprland-authentication-agent = {
-        description = "polkit-gnome-authentication-agent";
+      user.services.polkit-gnome-authentication-agent-1 = {
+        description = "polkit-gnome-authentication-agent-1";
         wantedBy = ["graphical-session.target"];
         wants = ["graphical-session.target"];
         after = ["graphical-session.target"];
         serviceConfig = {
           Type = "simple";
-          ExecStart = "${inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent}/libexec/hyprpolkitagent";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
           Restart = "on-failure";
           RestartSec = 1;
           TimeoutStopSec = 10;
@@ -90,67 +80,45 @@
         glib-networking.enable = true;
         gnome-keyring.enable = true;
         gnome-online-accounts.enable = true;
-        localsearch.enable = true;
-        tinysparql.enable = true;
+        tracker-miners.enable = true;
+        tracker.enable = true;
       };
     };
 
     services.greetd = {
       enable = true;
-      settings.default_session.command = pkgs.writeShellScript "greeter" ''
-        export XKB_DEFAULT_LAYOUT=${config.services.xserver.xkb.layout}
-        export XCURSOR_THEME=Bibata-Modern-Ice
-        export XCURSOR_SIZE=24
-        ${asztal}/bin/greeter
-      '';
+      settings.default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+      };
+      # settings.default_session.command = pkgs.writeShellScript "greeter" ''
+      #   export XKB_DEFAULT_LAYOUT=${config.services.xserver.xkb.layout}
+      #   export XCURSOR_THEME=Qogir
+      #   ${asztal}/bin/greeter
+      # '';
     };
 
     systemd.tmpfiles.rules = [
       "d '/var/cache/greeter' - greeter greeter - -"
     ];
 
-    systemd.services.swayosd = {
-      enable = true;
-      description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc...";
-      documentation = ["https://github.com/ErikReider/SwayOSD"];
-      partOf = ["graphical.target"];
-      after = ["graphical.target"];
-      wantedBy = ["graphical.target"];
-      serviceConfig = {
-        Type = "dbus";
-        BusName = "org.erikreider.swayosd";
-        ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
-        Restart = "on-failure";
-      };
-    };
-
-    system.activationScripts.starship = {
-      text = ''
-        mkdir -p /home/loseardes77/.cache/starship
-        ${pkgs.starship}/bin/starship init zsh > /home/loseardes77/.cache/starship/init.zsh
-      '';
-    };
-
-    system.activationScripts.wallpaper = let
-      wp = pkgs.writeShellScript "wp" ''
-        CACHE="/var/cache/greeter"
-        OPTS="$CACHE/options.json"
-        HOME="/home/$(find /home -maxdepth 1 -printf '%f\n' | tail -n 1)"
-
-        mkdir -p "$CACHE"
-        chown greeter:greeter $CACHE
-
-        if [[ -f "$HOME/.cache/ags/options.json" ]]; then
-          cp $HOME/.cache/ags/options.json $OPTS
-          chown greeter:greeter $OPTS
-        fi
-
-        if [[ -f "$HOME/.config/background" ]]; then
-          cp "$HOME/.config/background" $CACHE/background
-          chown greeter:greeter "$CACHE/background"
-        fi
-      '';
-    in
-      builtins.readFile wp;
+    # TODO:
+    # system.activationScripts.wallpaper = builtins.readFile pkgs.writeShellScript "wp" ''
+    #   CACHE="/var/cache/greeter"
+    #   OPTS="$CACHE/options.json"
+    #   HOME="/home/$(find /home -maxdepth 1 -printf '%f\n' | tail -n 1)"
+    #
+    #   mkdir -p "$CACHE"
+    #   chown greeter:greeter $CACHE
+    #
+    #   if [[ -f "$HOME/.cache/ags/options.json" ]]; then
+    #     cp $HOME/.cache/ags/options.json $OPTS
+    #     chown greeter:greeter $OPTS
+    #   fi
+    #
+    #   if [[ -f "$HOME/.config/background" ]]; then
+    #     cp "$HOME/.config/background" $CACHE/background
+    #     chown greeter:greeter "$CACHE/background"
+    #   fi
+    # '';
   };
 }

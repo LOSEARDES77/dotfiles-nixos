@@ -1,5 +1,5 @@
 {
-  description = "Configurations of LOSEARDES77";
+  description = "Configurations of Aylur";
 
   outputs = inputs @ {
     self,
@@ -7,90 +7,70 @@
     nixpkgs,
     ...
   }: {
-    packages.x86_64-linux = {
-      default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
-    };
     # nixos config
     nixosConfigurations = {
-      "loseardes77-laptop" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          asztal = self.packages.x86_64-linux.default;
-        };
+      "nixos" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         modules = [
           ./nixos/nixos.nix
           home-manager.nixosModules.home-manager
-          {networking.hostName = "loseardes77-laptop";}
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                nvchad = inputs.nvchad4nix.packages."x86_64-linux".nvchad;
-              })
-            ];
-          }
+          {networking.hostName = "nixos";}
+        ];
+      };
+    };
+
+    # macos hm config
+    homeConfigurations = {
+      "demeter" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ({pkgs, ...}: {
+            nix.package = pkgs.nix;
+            home.username = "demeter";
+            home.homeDirectory = "/Users/demeter";
+            imports = [./macos/home.nix];
+          })
         ];
       };
     };
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    my-shell = {
+      url = "git+ssh://git@github.com/Aylur/my-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprpolkitagent = {
-      url = "github:hyprwm/hyprpolkitagent";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprsysteminfo = {
-      url = "github:hyprwm/hyprsysteminfo";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvchad4nix = {
-      url = "github:nix-community/nix4nvchad";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprgrass = {
+    #   url = "github:horriblename/hyprgrass";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
-    matugen = {
-      url = "github:InioX/matugen?ref=v2.3.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    astal = {
-      url = "github:Aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland-hyprspace = {
+    #   url = "github:KZDKM/Hyprspace";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     lf-icons = {
       url = "github:gokcehan/lf";
+      flake = false;
+    };
+
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
   };

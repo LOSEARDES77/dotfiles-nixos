@@ -80,7 +80,7 @@
     };
   in {
     enable = true;
-    font = "CaskaydiaCove Nerd Font";
+    font = "CaskaydiaCove NF";
 
     themes = {
       Dark = "Charmful Dark";
@@ -117,7 +117,7 @@
 
       audible_bell = "Disabled";
 
-      default_prog = ["${pkgs.nushell}/bin/nu"];
+      default_prog = ["${pkgs.tmux}/bin/tmux"];
     };
 
     extraLua = ''

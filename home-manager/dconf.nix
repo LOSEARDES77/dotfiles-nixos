@@ -91,7 +91,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "wezterm";
+      command = "xterm";
       name = "term";
     };
 
@@ -123,7 +123,7 @@ with lib.hm.gvariant; {
     };
 
     "system/locale" = {
-      region = "es_ES.UTF-8";
+      region = "hu_HU.UTF-8";
     };
 
     "org/virt-manager/virt-manager/connections" = {
