@@ -135,6 +135,7 @@ in {
         arr = [1 2 3 4 5 6 7];
       in
         [
+          "SUPER SHIFT, R, exec, pkill waybar; sleep 1; waybar & disown"
           "ALT, SPACE,     exec, walker"
           ",XF86PowerOff,  exec, wleave -p layer-shell"
           ",Print,         exec, ${screenshot}"
