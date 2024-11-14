@@ -7,9 +7,6 @@
     nixpkgs,
     ...
   }: {
-    packages.x86_64-linux = {
-      default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
-    };
     # nixos config
     nixosConfigurations = {
       "loseardes77-laptop" = nixpkgs.lib.nixosSystem {
@@ -24,9 +21,6 @@
           {networking.hostName = "loseardes77-laptop";}
           {
             nixpkgs.overlays = [
-              (final: prev: {
-                nvchad = inputs.nvchad4nix.packages."x86_64-linux".nvchad;
-              })
             ];
           }
         ];
@@ -71,22 +65,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvchad4nix = {
-      url = "github:nix-community/nix4nvchad";
+    waybar = {
+      url = "github:Alexays/Waybar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    matugen = {
-      url = "github:InioX/matugen?ref=v2.3.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    astal = {
-      url = "github:Aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
+    inputs.walker = {
+      url = "github:abenz1267/walker";
+      input.nixpkgs.follows = "nixpkgs";
     };
 
     lf-icons = {

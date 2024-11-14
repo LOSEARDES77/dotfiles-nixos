@@ -43,7 +43,7 @@ in {
 
   config.programs = {
     zsh = {
-      shellAliases = aliases // config.shellAliases;
+      shellAliases = aliases;
       enable = true;
       history = {
         append = true;
@@ -141,13 +141,13 @@ in {
     };
 
     bash = {
-      shellAliases = aliases // config.shellAliases;
+      shellAliases = aliases;
       enable = true;
       initExtra = "SHELL=${pkgs.bash}";
     };
 
     nushell = {
-      shellAliases = aliasesnu // config.shellAliases;
+      shellAliases = aliasesnu;
       enable = true;
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = "\"  \"";

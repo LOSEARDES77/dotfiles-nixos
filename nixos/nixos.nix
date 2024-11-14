@@ -13,7 +13,6 @@ in {
     ./audio.nix
     ./locale.nix
     ./nautilus.nix
-    #    ./laptop.nix
     ./hyprland.nix
     ./gnome.nix
   ];
@@ -45,8 +44,9 @@ in {
     inputs.hypridle.packages.${system}.default
     inputs.hyprpaper.packages.${system}.default
     inputs.hyprpolkitagent.packages.${system}.default
-    inputs.nvchad4nix.packages.${system}.default
+    inputs.waybar.packages.${system}.default
     pkgs.nh
+    pkgs.swaynotificationcenter
   ];
 
   environment.etc = {
@@ -191,11 +191,8 @@ in {
       imports = [
         ../home-manager/kitty.nix
         ../home-manager/nvim.nix
-        ../home-manager/ags.nix
-        # ../home-manager/blackbox.nix
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
-        ../home-manager/distrobox.nix
         ../home-manager/git.nix
         ../home-manager/hyprland.nix
         ../home-manager/lf.nix
@@ -203,8 +200,6 @@ in {
         ../home-manager/sh.nix
         ../home-manager/starship.nix
         ../home-manager/theme.nix
-        ../home-manager/tmux.nix
-        # ../home-manager/wezterm.nix
         ../home-manager/dev.nix
         ../home-manager/nwg-dock.nix
         ./home.nix

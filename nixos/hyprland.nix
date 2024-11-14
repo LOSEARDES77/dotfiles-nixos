@@ -12,12 +12,16 @@
 
   config = lib.mkIf config.hyprland.enable {
     nix.settings = {
-      substituters = ["https://hyprland.cachix.org"];
+      substituters = [
+        "https://hyprland.cachix.org"
+        "https://walker.cachix.org"
+      ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
       ];
     };
-
+    services.displayManager.sddm.enable = true;
     services.xserver.displayManager.startx.enable = true;
 
     programs.hyprland = {
@@ -35,7 +39,6 @@
 
     security = {
       polkit.enable = true;
-      pam.services.ags = {};
     };
 
     environment.systemPackages = with pkgs; [
@@ -95,20 +98,6 @@
       };
     };
 
-    services.greetd = {
-      enable = true;
-      settings.default_session.command = pkgs.writeShellScript "greeter" ''
-        export XKB_DEFAULT_LAYOUT=${config.services.xserver.xkb.layout}
-        export XCURSOR_THEME=Bibata-Modern-Ice
-        export XCURSOR_SIZE=24
-        ${asztal}/bin/greeter
-      '';
-    };
-
-    systemd.tmpfiles.rules = [
-      "d '/var/cache/greeter' - greeter greeter - -"
-    ];
-
     systemd.services.swayosd = {
       enable = true;
       description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc...";
@@ -130,27 +119,5 @@
         ${pkgs.starship}/bin/starship init zsh > /home/loseardes77/.cache/starship/init.zsh
       '';
     };
-
-    system.activationScripts.wallpaper = let
-      wp = pkgs.writeShellScript "wp" ''
-        CACHE="/var/cache/greeter"
-        OPTS="$CACHE/options.json"
-        HOME="/home/$(find /home -maxdepth 1 -printf '%f\n' | tail -n 1)"
-
-        mkdir -p "$CACHE"
-        chown greeter:greeter $CACHE
-
-        if [[ -f "$HOME/.cache/ags/options.json" ]]; then
-          cp $HOME/.cache/ags/options.json $OPTS
-          chown greeter:greeter $OPTS
-        fi
-
-        if [[ -f "$HOME/.config/background" ]]; then
-          cp "$HOME/.config/background" $CACHE/background
-          chown greeter:greeter "$CACHE/background"
-        fi
-      '';
-    in
-      builtins.readFile wp;
   };
 }

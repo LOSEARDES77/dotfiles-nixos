@@ -44,7 +44,6 @@ in {
         "HYPRCURSOR_SIZE, 24"
       ];
       exec-once = [
-        "ags -b hypr"
         "hyprctl setcursor Hypr-Bibata-Modern-Ice 24"
         "1password --silent"
         "wl-paste --type text --watch cliphist store"
@@ -54,6 +53,9 @@ in {
         "hypridle"
         "jetbrains-toolbox"
         "${pkgs.swayosd}/bin/swayosd-server"
+        "walker --gapplication-service"
+        "swaync"
+        "waybar"
       ];
 
       monitor = [
@@ -120,7 +122,6 @@ in {
         (f "xdg-desktop-portal")
         (f "xdg-desktop-portal-gnome")
         (f "de.haeckerfelix.Fragments")
-        (f "com.github.Aylur.ags")
         "workspace 7, title:Spotify"
       ];
 
@@ -131,14 +132,11 @@ in {
         resizeactive = binding "SUPER CTRL" "resizeactive";
         mvactive = binding "SUPER ALT" "moveactive";
         mvtows = binding "SUPER SHIFT" "movetoworkspace";
-        e = "exec, ags -b hypr";
         arr = [1 2 3 4 5 6 7];
       in
         [
-          "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
-          "ALT, SPACE,     ${e} -t launcher"
-          "SUPER, Tab,     ${e} -t overview"
-          ",XF86PowerOff,  ${e} -r 'powermenu.shutdown()'"
+          "ALT, SPACE,     " # TODO: Configure a app launcher
+          ",XF86PowerOff,  exec, echo a"
           ",XF86Launch4,   ${e} -r 'recorder.start()'"
           ",Print,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
