@@ -45,6 +45,7 @@
 
     environment.systemPackages = with pkgs; [
       inputs.walker.packages."x86_64-linux".default
+      bc
       wleave
       swayosd
       morewaita-icon-theme
