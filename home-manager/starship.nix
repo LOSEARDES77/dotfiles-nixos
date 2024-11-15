@@ -120,8 +120,9 @@ in {
     export $PATH=$PATH:${pkgs.starship}/bin/
   '';
 
-  programs.zsh.initExtra = ''
-    PATH=$PATH:${pkgs.starship}/bin
+  programs.zsh.initExtraFirst = ''
+    eval "$(${starshipCmd} init zsh)"
+    export $PATH=$PATH:${pkgs.starship}/bin/
   '';
 
   programs.nushell = {

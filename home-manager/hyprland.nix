@@ -65,6 +65,7 @@ in {
       general = {
         layout = "dwindle";
         resize_on_border = true;
+        "col.active_border" = "rgba(00a2f8ff) rgba(00e5cfff) 45deg";
       };
 
       misc = {
@@ -204,6 +205,7 @@ in {
       ];
 
       decoration = {
+        rounding = 5;
         dim_inactive = true;
         dim_strength = 0.1;
 

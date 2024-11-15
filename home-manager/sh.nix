@@ -17,22 +17,8 @@
 
     "cat" = "bat";
     "vim" = "nvim";
-    "gp" = "git push";
-    "ga" = "git add .";
-    "gcm" = "git commit";
     "update" = "nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
-    "flake-update" = "cd /home/loseardes77/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
-    "fol" = "zen file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
-  };
-  aliasesnu = {
-    "cat" = "bat";
-    "vim" = "nvim";
-    "gp" = "git push";
-    "ga" = "git add .";
-    "gcm" = "git commit";
-    "update" = "nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
-    "flake-update" = "cd /home/loseardes77/.config/dotfiles-nixos; git pull; nix flake update; git add flake.lock; git commit -m 'Update flake.lock'; git push; nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
-    "fol" = "zen file:///home/loseardes77/Downloads/empresa-e-iniciativa-emprendedora-2022-libro_compress.pdf";
+    "flake-update" = "nix flake update --flake /home/loseardes77/.config/dotfiles-nixos; git add flake.lock; git commit -m 'Update flake.lock'; git push";
   };
 in {
   options.shellAliases = with lib;
@@ -43,7 +29,7 @@ in {
 
   config.programs = {
     zsh = {
-      shellAliases = aliases;
+      shellAliases = aliases // config.shellAliases;
       enable = true;
       history = {
         append = true;
@@ -75,11 +61,7 @@ in {
 
         # Set the directory we want to store zinit and plugins
         ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
-        PATH=$PATH:/home/loseardes77/.cargo/bin:/home/loseardes77/.fzf/bin
-        # Deno
-        DENO_INSTALL="/home/loseardes77/.deno"
-        PATH="/home/loseardes77/.deno/bin:$PATH"
-        eval "$(deno completions zsh)"
+        PATH=$PATH:/home/loseardes77/.cargo/bin
 
         # Download Zinit, if it's not there yet
         if [ ! -d "$ZINIT_HOME" ]; then
@@ -90,13 +72,11 @@ in {
         # Source/Load zinit
         source "$ZINIT_HOME/zinit.zsh"
 
-        zinit ice wait'!0'
-
-        # Add in starship
-        zinit ice wait'!0' as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh" atload"eval \$(starship init zsh)"
-        zinit light starship/starship
+        # # Add in starship
+        # zinit ice wait'!0' as"command" from"gh-r" \
+        #   atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+        #   atpull"%atclone" src"init.zsh" atload"eval \$(starship init zsh)"
+        # # zinit light starship/starship
 
         # Add in zsh plugins
         zinit light zsh-users/zsh-syntax-highlighting
@@ -107,9 +87,6 @@ in {
         # Add in snippets
         zinit snippet OMZP::git
         zinit snippet OMZP::sudo
-        zinit snippet OMZP::aws
-        zinit snippet OMZP::kubectl
-        zinit snippet OMZP::kubectx
         zinit snippet OMZP::command-not-found
 
         # Load completions
@@ -136,7 +113,6 @@ in {
         # Shell integrations
         eval "$(fzf --zsh)"
         eval "$(zoxide init --cmd cd zsh)"
-        printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
       '';
     };
 
@@ -147,7 +123,7 @@ in {
     };
 
     nushell = {
-      shellAliases = aliasesnu;
+      shellAliases = aliases;
       enable = true;
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = "\"  \"";
