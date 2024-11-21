@@ -44,7 +44,7 @@ in {
     gh
     # kdePackages.plasma-browser-integration
     nixos-bgrt-plymouth
-    mission-center
+    # mission-center
     lightly-qt
     libsForQt5.qt5ct
     egl-wayland

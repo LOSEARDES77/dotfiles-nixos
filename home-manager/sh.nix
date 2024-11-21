@@ -17,8 +17,6 @@
 
     "cat" = "bat";
     "vim" = "nvim";
-    "update" = "nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
-    "flake-update" = "nix flake update --flake /home/loseardes77/.config/dotfiles-nixos; git add flake.lock; git commit -m 'Update flake.lock'; git push";
   };
 in {
   options.shellAliases = with lib;
@@ -113,6 +111,11 @@ in {
         # Shell integrations
         eval "$(fzf --zsh)"
         eval "$(zoxide init --cmd cd zsh)"
+
+        unalias update 2>/dev/null
+        alias update="nh os switch /home/loseardes77/.config/dotfiles-nixos -- --impure";
+        unalias flake-update 2>/dev/null
+        alias flake-update="nix flake update --flake /home/loseardes77/.config/dotfiles-nixos; git add flake.lock; git commit -m 'Update flake.lock'; git push";
       '';
     };
 

@@ -44,6 +44,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      libqalculate
       inputs.walker.packages."x86_64-linux".default
       bc
       wleave
@@ -118,11 +119,14 @@
       };
     };
 
-    system.activationScripts.starship = {
-      text = ''
-        mkdir -p /home/loseardes77/.cache/starship
-        ${pkgs.starship}/bin/starship init zsh > /home/loseardes77/.cache/starship/init.zsh
-      '';
+    systemd.services.walker = {
+      enable = true;
+      description = "App launcher and more";
+      documentation = ["https://github.com/abenz1267/walker"];
+      serviceConfig = {
+        ExecStart = "walker --gapplication-service";
+        Restart = "on-failure";
+      };
     };
   };
 }
