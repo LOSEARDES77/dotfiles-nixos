@@ -25,6 +25,8 @@
   packages = with pkgs; {
     linux = [
       (mpv.override {scripts = [mpvScripts.mpris];})
+      papers
+      sass
       spotify
       # gnome-secrets
       fragments

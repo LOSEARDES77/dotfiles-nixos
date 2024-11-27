@@ -52,6 +52,7 @@ in {
       initExtra = ''
 
         SHELL=\${pkgs.zsh}/bin/zsh
+        env GOMAXPROCS=8;
         zstyle ':completion:*' menu select
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
@@ -135,7 +136,8 @@ in {
         PROMPT_COMMAND_RIGHT = ''""'';
         NIXPKGS_ALLOW_UNFREE = "1";
         NIXPKGS_ALLOW_INSECURE = "1";
-        SHELL = ''"${pkgs.nushell}/bin/nu"'';
+        GOMAXPROCS = "8";
+        SHELL = ''"${pkgs.zsh}/bin/zsh"'';
         EDITOR = ''"${config.home.sessionVariables.EDITOR}"'';
         VISUAL = ''"${config.home.sessionVariables.VISUAL}"'';
       };
