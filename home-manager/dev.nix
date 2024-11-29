@@ -17,12 +17,6 @@
     vscode
     jdk
     synology-drive-client
-    gcc
-    cargo
-    rustc
-    rust-analyzer
-    rustfmt
-    clippy
     dotnet-sdk_8
     php
     hugo

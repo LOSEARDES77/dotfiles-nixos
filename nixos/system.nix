@@ -42,17 +42,21 @@ in {
     git
     wget
     gh
-    # kdePackages.plasma-browser-integration
     nixos-bgrt-plymouth
-    # mission-center
+    mission-center
     lightly-qt
     libsForQt5.qt5ct
     egl-wayland
     alejandra
+    rustup
+    llvmPackages_19.bintools
+    clang
+    clippy
   ];
 
   # services
   services = {
+    ratbagd.enable = true;
     xserver = {
       enable = true;
       excludePackages = [pkgs.xterm];
